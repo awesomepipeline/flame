@@ -1,0 +1,118 @@
+/* Using Materialize CSS library */
+@charset "UTF-8";
+
+// Mixins
+@import "../../bower_components/materialize/sass/components/prefixer";
+@import "../../bower_components/materialize/sass/components/mixins";
+@import "../../bower_components/materialize/sass/components/color";
+
+
+
+// Overriding colours
+$primary-color: color("blue", "darken-2") !default;
+$primary-color-light: false !default;
+$primary-color-dark: false !default;
+@if not $primary-color-light {
+  $primary-color-light: lighten($primary-color, 15%);
+}
+@if not $primary-color-dark {
+  $primary-color-dark: darken($primary-color, 15%);
+}
+$secondary-color: color("teal", "lighten-1") !default;
+$success-color: color("green", "base") !default;
+$error-color: color("red", "base") !default;
+
+$link-color: color("light-blue", "darken-1") !default;
+
+// Variables;
+@import "../../bower_components/materialize/sass/components/variables";
+
+// Reset
+@import "../../bower_components/materialize/sass/components/normalize";
+
+// materialize/components
+@import "../../bower_components/materialize/sass/components/global";
+@import "../../bower_components/materialize/sass/components/icons-material-design";
+@import "../../bower_components/materialize/sass/components/grid";
+@import "../../bower_components/materialize/sass/components/navbar";
+@import "../../bower_components/materialize/sass/components/roboto";
+@import "../../bower_components/materialize/sass/components/typography";
+@import "../../bower_components/materialize/sass/components/cards";
+@import "../../bower_components/materialize/sass/components/toast";
+@import "../../bower_components/materialize/sass/components/tabs";
+@import "../../bower_components/materialize/sass/components/tooltip";
+@import "../../bower_components/materialize/sass/components/buttons";
+@import "../../bower_components/materialize/sass/components/dropdown";
+@import "../../bower_components/materialize/sass/components/waves";
+@import "../../bower_components/materialize/sass/components/modal";
+@import "../../bower_components/materialize/sass/components/collapsible";
+@import "../../bower_components/materialize/sass/components/materialbox";
+@import "../../bower_components/materialize/sass/components/form";
+@import "../../bower_components/materialize/sass/components/table_of_contents";
+@import "../../bower_components/materialize/sass/components/sideNav";
+@import "../../bower_components/materialize/sass/components/preloader";
+@import "../../bower_components/materialize/sass/components/slider";
+@import "../../bower_components/materialize/sass/components/date_picker/default.scss";
+@import "../../bower_components/materialize/sass/components/date_picker/default.date.scss";
+@import "../../bower_components/materialize/sass/components/date_picker/default.time.scss";
+
+@media #{$large-and-up} {
+  // styles for large screens and up
+  #event-header {
+    margin-left: 0.7em;
+  }
+}
+
+@media #{$medium-and-down} {
+    // styles for medium screens and larger
+    #event-header {
+      left: 10%;      
+  }
+} 
+
+@media #{$small-and-down} {
+    // styles for small screens and down
+    #event-header {
+      left: 20%;
+    }
+  }
+
+.tabs {
+  .tab {
+    a {
+      color: $primary-color;
+    }
+  }
+}
+
+.create-event-button {
+  border: 1px solid white;
+  border-radius: 999em;
+  line-height: 3em;
+  margin-top: 0.5em;
+  margin-right: 0.7em;
+  transition: background-color 0.3s ease-out,
+              color 0.3s ease-out;
+  &:hover, &:active {
+    background-color: $primary-color-light;
+    transition: background-color 0.3s ease-out,
+                color 0.3s ease-out;
+  }
+}
+
+ul {
+  li {
+    &.disabled, &.disabled:hover {
+      background-color: #1e88e5;
+    }
+  }
+}
+
+#star-icon {
+  display: inline;
+  line-height: 0.7em;
+  vertical-align: text-bottom;
+}
+
+
+
