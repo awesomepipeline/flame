@@ -19,11 +19,20 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  // Materialize.css dist imports
   app.import('bower_components/materialize/dist/css/materialize.css');
   app.import('bower_components/materialize/dist/js/materialize.js');
+  
+  // Materialize.css font and glyphicons imports
   app.import('bower_components/materialize/font/roboto/Roboto-Regular.woff2', {
     destDir: 'font/roboto'
   });
+  app.import('/bower_components/materialize/font/material-design-icons/Material-Design-Icons.woff2', {
+    destDir: 'font/material-design-icons'
+  })
+
+
+
 
   return app.toTree();
 };
