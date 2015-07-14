@@ -6,6 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('hosting');
+  this.route('pending');
+  this.route('responded');
+  this.route('notifications');
 });
 
 export default Router;
