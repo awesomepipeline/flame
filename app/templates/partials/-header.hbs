@@ -1,14 +1,8 @@
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('ul.tabs').tabs();
-});
-</script>
-
 <nav class="z-depth-0 blue darken-1">
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo" id="event-header">Envite</a>
+    <a href={{'/'}} class="brand-logo" id="event-header">Envite</a>
     <ul id="nav-mobile" class="right">
-      <li class="disabled"><a href="#" class="create-event-button"><i class="mdi-action-stars" id="star-icon"></i> Create an event!</a></li>
+      <li class="disabled">{{#link-to 'index' class='create-event-button'}}<i class="mdi-action-stars" id="star-icon"></i> Create an event!{{/link-to}}</li>
     </ul>
   </div>
 </nav>
@@ -30,4 +24,10 @@
     </ul>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('ul.tabs').tabs();
+});
+</script>
 
