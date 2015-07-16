@@ -33,7 +33,7 @@ module.exports = function(environment) {
   'default-src': "'none'",
   'script-src': "'self' 'unsafe-inline",
   'font-src': "'self'",
-  'connect-src': "'self'",
+  'connect-src': "'self' 'unsafe-inline'",
   'img-src': "'self'",
   'style-src': "'self' 'unsafe-inline'",
   'media-src': "'self'"
