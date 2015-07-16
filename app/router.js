@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('pending');
   this.route('responded');
   this.route('notifications');
+  this.route('login');
 });
 
 export default Router;

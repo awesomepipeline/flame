@@ -19,6 +19,11 @@ module.exports = function(environment) {
     }
   };
 
+  // ember-simple-auth configurations
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:devise'
+  };
+
   ENV.contentSecurityPolicy = {
   'default-src': "'none'",
   'script-src': "'self' 'unsafe-inline",
