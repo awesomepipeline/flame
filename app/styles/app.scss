@@ -6,8 +6,6 @@
 @import "../../bower_components/materialize/sass/components/mixins";
 @import "../../bower_components/materialize/sass/components/color";
 
-
-
 // Overriding colours
 $primary-color: color("blue", "darken-2") !default;
 $primary-color-light: false !default;
@@ -56,6 +54,7 @@ $link-color: color("light-blue", "darken-1") !default;
 @import "../../bower_components/materialize/sass/components/date_picker/default.date.scss";
 @import "../../bower_components/materialize/sass/components/date_picker/default.time.scss";
 
+// Media queries
 @media #{$large-and-up} {
   // styles for large screens and up
   #event-header {
@@ -77,6 +76,16 @@ $link-color: color("light-blue", "darken-1") !default;
     }
   }
 
+/******************************
+*******************************
+*******************************
+
+    CUSTOM CSS STARTS HERE
+
+*******************************
+*******************************
+*******************************
+*******************************/
 .tabs {
   .tab {
     a {
