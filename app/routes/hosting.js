@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import AuthRoute from './auth-route';
 
-export default Ember.Route.extend({
+export default AuthRoute.extend({
   model: function() {
     return ['cow', 'joke', 'moo'];
   }
