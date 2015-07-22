@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('responded');
   this.route('notifications');
   this.route('login');
+  this.route('register');
 });
 
 export default Router;

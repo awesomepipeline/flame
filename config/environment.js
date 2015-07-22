@@ -25,18 +25,18 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth-devise'] = {
-    serverTokenEndpoint: 'http://localhost:3100/api/auth',
+    serverTokenEndpoint: 'http://localhost:3000/api/auth',
     tokenAttributeName: 'auth_token'
   }
 
   ENV.contentSecurityPolicy = {
-  'default-src': "'none'",
-  'script-src': "'self' 'unsafe-inline",
-  'font-src': "'self'",
-  'connect-src': "'self' 'unsafe-inline'",
-  'img-src': "'self'",
-  'style-src': "'self' 'unsafe-inline'",
-  'media-src': "'self'"
+    'default-src': "'none'",
+    'script-src': "'self' 'unsafe-inline",
+    'font-src': "'self'",
+    'connect-src': "'self' 'unsafe-inline'",
+    'img-src': "'self'",
+    'style-src': "'self' 'unsafe-inline'",
+    'media-src': "'self'"
   }
 
   if (environment === 'development') {
