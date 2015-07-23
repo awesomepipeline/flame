@@ -27,9 +27,12 @@ module.exports = function(defaults) {
   app.import('bower_components/materialize/font/roboto/Roboto-Regular.woff2', {
     destDir: 'font/roboto'
   });
+  app.import('bower_components/materialize/font/roboto/Roboto-Light.woff2', {
+    destDir: 'font/roboto'
+  });
   app.import('/bower_components/materialize/font/material-design-icons/Material-Design-Icons.woff2', {
     destDir: 'font/material-design-icons'
-  })
+  });
 
 
 

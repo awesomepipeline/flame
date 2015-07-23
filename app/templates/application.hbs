@@ -1,7 +1,6 @@
 {{#if session.isAuthenticated}}
-  {{partial "partials/header"}}
-  <a {{action 'invalidateSession'}}>Logout</a>
-  {{outlet}}
+  {{partial "partials/header"}}  
+  {{outlet hosting}}
 {{else}}
   {{outlet index}}
 {{/if}}
