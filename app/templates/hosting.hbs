@@ -1,8 +1,12 @@
-<div id="hosting">
+<div class="container">
+  <div id="hosting">
   This lets you host an event!
   {{#each model as |event|}}
     {{!-- <div>{{event}}</div> --}}
     <div>{{summary-card card-data=event}}</div>
     {{!-- <div>{{event.name}}</div> --}}
   {{/each}}
+  </div>
 </div>
+
+
