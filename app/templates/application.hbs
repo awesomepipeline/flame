@@ -1,6 +1,6 @@
 {{#if session.isAuthenticated}}
   {{partial "partials/header"}}  
-  {{outlet hosting}}
+  {{outlet}}
 {{else}}
-  {{outlet index}}
+  {{outlet}}
 {{/if}}
