@@ -26,7 +26,8 @@ module.exports = function(environment) {
 
   ENV['simple-auth-devise'] = {
     serverTokenEndpoint: 'http://localhost:3000/api/auth',
-    tokenAttributeName: 'auth_token'
+    tokenAttributeName: 'auth_token',
+	identificationAttributeName: 'username'
   }
 
   ENV.contentSecurityPolicy = {
