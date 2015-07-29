@@ -21,7 +21,8 @@ module.exports = function(environment) {
 
   // ember-simple-auth configurations
   ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:devise'
+    authorizer: 'simple-auth-authorizer:devise',
+    routeAfterAuthentication: 'hosting'
   };
 
   ENV['simple-auth-devise'] = {
@@ -32,7 +33,7 @@ module.exports = function(environment) {
 
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
-    'script-src': "'self' 'unsafe-inline",
+    'script-src': "'self' 'unsafe-inline'",
     'font-src': "'self'",
     'connect-src': "'self' 'unsafe-inline'",
     'img-src': "'self'",

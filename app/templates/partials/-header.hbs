@@ -1,26 +1,31 @@
+{{!-- Navbar --}}
 <nav class="z-depth-0 blue darken-1">
   <div class="nav-wrapper">
-    <a href={{'/'}} class="brand-logo" id="event-header">Envite</a>
+    {{!-- <a href={{'/'}} class="brand-logo" id="event-header">Envite</a> --}}
+    <ul id="nav-mobile">
+      <li><a href="#"><i class="mdi-action-settings" id="inline-icon"></i> Settings</a></li>
+      <li><a {{action 'invalidateSession'}} style="cursor:pointer">Logout</a></li>
+    </ul>
     <ul id="nav-mobile" class="right">
-      <li class="disabled">{{#link-to 'index' class='create-event-button'}}<i class="mdi-action-stars" id="star-icon"></i> Create an event!{{/link-to}}</li>
+      <li class="disabled">{{#link-to 'index' class='create-event-button'}}<i class="mdi-action-stars" id="inline-icon"></i> Create an event!{{/link-to}}</li>
     </ul>
   </div>
 </nav>
 
+{{!-- Tabs --}}
 <div class="row">
   <div class="col s12">
     <ul class="tabs hide-on-small-only">
-    <li class="tab col s3">{{#link-to 'hosting'}}Hosting{{/link-to}}</li>
+      <li class="tab col s3">{{#link-to 'hosting'}}Hosting{{/link-to}}</li>
       <li class="tab col s3">{{#link-to 'pending'}}Pending{{/link-to}}</li>
       <li class="tab col s3">{{#link-to 'responded'}}Responded{{/link-to}}</li>
       <li class="tab col s3">{{#link-to 'notifications'}}Notifications{{/link-to}}</li>
     </ul>
     <ul class="tabs hide-on-med-and-up">
-      <li class="tab col s3"><a class="active" href="#hosting" onclick="function(){alert('hello');}"><i class="mdi-social-group-add"></i></a></li>
-
-      <li class="tab col s3"><a href="#pending"><i class="mdi-content-reply-all"></i></a></li>
-      <li class="tab col s3"><a href="#responded"><i class="mdi-image-edit"></i></a></li>
-      <li class="tab col s3"><a href="#notifications"><i class="mdi-social-notifications"></i></a></li>
+      <li class="tab col s3">{{#link-to 'hosting'}}<i class="mdi-social-group-add"></i>{{/link-to}}</li>
+      <li class="tab col s3">{{#link-to 'pending'}}<i class="mdi-content-reply-all"></i>{{/link-to}}</li>
+      <li class="tab col s3">{{#link-to 'responded'}}<i class="mdi-image-edit"></i>{{/link-to}}</li>
+      <li class="tab col s3">{{#link-to 'notifications'}}<i class="mdi-social-notifications"></i>{{/link-to}}</li>
     </ul>
   </div>
 </div>

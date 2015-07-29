@@ -1,8 +1,6 @@
 {{#if session.isAuthenticated}}
-  {{partial "partials/header"}}
-  <a {{ action 'invalidateSession' }}>Logout</a>
+  {{partial "partials/header"}}  
   {{outlet}}
 {{else}}
-  {{!-- {{#link-to 'login'}}Login{{/link-to}} <br> --}}
   {{outlet}}
 {{/if}}
