@@ -5,5 +5,5 @@ export default DS.Model.extend({
   datetime: DS.attr('date'),
   description: DS.attr('string'),
   host: DS.attr('number'),
-  created_at: DS.attr('date')
+  created_at: DS.attr('date'),
 });
