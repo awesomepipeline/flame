@@ -8,7 +8,7 @@ export default AuthRoute.extend({
   //     "url": "http://localhost:3000/api/v1/user/events",
   //     "method": "GET",
   //     "headers": {
-        // "authorization": "Token token=\"zFv7vEy55ZD7cnbos1wV\",  username=\"tester1\""
+  //       "authorization": "Token token=\"zFv7vEy55ZD7cnbos1wV\",  username=\"tester1\""
   //     }
   //   }
 
@@ -20,4 +20,5 @@ export default AuthRoute.extend({
   model() {
     return this.store.findAll('event');
   }
+  
 });
