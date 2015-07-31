@@ -18,6 +18,6 @@ export default AuthRoute.extend({
   // }
 
   model() {
-    this.store.findAll('event');
+    return this.store.findAll('event');
   }
 });
