@@ -1,8 +1,15 @@
+{{!-- https://www.google.com/design/icons/ --}}
+
 {{!-- Navbar --}}
 <nav class="z-depth-0 blue darken-1">
   <div class="nav-wrapper">
     {{!-- <a href={{'/'}} class="brand-logo" id="event-header">Envite</a> --}}
-    <ul id="nav-mobile">
+    <a href="#" class="button-collapse hide-on-med-and-up"><i class="mdi-action-list"></i></a>
+    <ul class="side-nav">
+      <li><a href="sass.html">Settings</a></li>
+      <li><a href="badges.html">Logout</a></li>
+    </ul>
+    <ul id="nav-mobile" class="hide-on-small-and-down">
       <li><a href="#"><i class="mdi-action-settings" id="inline-icon"></i> Settings</a></li>
       <li><a {{action 'invalidateSession'}} style="cursor:pointer">Logout</a></li>
     </ul>
@@ -33,6 +40,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('ul.tabs').tabs();
-});
+  });
+  $(".button-collapse").sideNav();
 </script>
 
