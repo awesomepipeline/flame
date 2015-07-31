@@ -128,5 +128,14 @@ ul {
   vertical-align: text-bottom;
 }
 
+.response-button {
+  transition: 0.3s ease-out,
+              color 0.3s ease-out !important;
+  &:hover, &:active {
+    @extend .text-lighten-4;
+    transition: background-color 0.3s ease-out,
+                color 0.3s ease-out !important;
+  }
+}
 
 
