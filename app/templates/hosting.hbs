@@ -4,12 +4,16 @@
         <div id="hosting">
           {{#each model as |event|}}
             <div>{{summary-card card-data=event}}</div>
+            {{event}}
+            is there anything here
           {{/each}}
        </div>
     </div>
   </div>
 </div>
 
-{{sessionKey}}
+This is the session key: {{sessionKey}}
+<br>
+This is the username: {{username}}
 
 {{!-- f5f5f5 --}}
