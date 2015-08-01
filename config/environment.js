@@ -23,6 +23,7 @@ module.exports = function(environment) {
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:devise',
     routeAfterAuthentication: 'events.hosting',
+    routeIfAlreadyAuthenticated: 'events.hosting',
     crossOriginWhitelist: ['http://localhost:3000']
   };
 

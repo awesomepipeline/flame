@@ -1,9 +1,6 @@
 import Ember from 'ember';
+import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 
-export default Ember.Route.extend({
-    afterModel: function() {
-    if (this.session.isAuthenticated) {
-      this.transitionTo('hosting');
-    }
-  }
+
+export default Ember.Route.extend(UnauthenticatedRouteMixin,{
 });
