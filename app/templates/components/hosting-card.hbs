@@ -1,1 +1,20 @@
-{{yield}}
+<div class="card grey lighten-5">
+  <div class="card-content grey-text text-darken-2">
+    <span class="card-title grey-text text-darken-1" style="font-weight: 600">{{card-data.activity}}</span>
+    <p>{{moment-format card-data.datetime 'DD/MM/YYYY'}}</p>
+    <p>{{card-data.description}}</p>
+  </div>
+  
+  <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">
+    <i>Event is happening {{moment-from-now card-data.datetime}}</i>
+  </div>
+
+  <div class="card-action" style="float:right">
+    <a class="red-text darken-4 response-button" href="#">Delete</a>
+    <a class="light-green-text accent-4 response-button" href="#">Edit</a>
+    {{#link-to 'events.show' card-data.id class="light-blue-text darken-4 response-button"}} Details {{/link-to}}
+    {{card-data.id}}
+  </div>
+</div>
+
+{{!-- {"events":[{"id":"1","activity":"How now brown cow","location":"this is cow","datetime":"2015-08-08T17:03:00.000+08:00","description":"hear me moo","host":2,"created_at":"2015-07-08T17:04:05.466+08:00","updated_at":"2015-07-08T17:04:05.466+08:00"},{"id":"2","activity":"cow","location":"asd","datetime":"2015-07-20T01:34:00.000+08:00","description":"dd","host":2,"created_at":"2015-07-12T01:35:02.801+08:00","updated_at":"2015-07-12T01:35:02.801+08:00"},{"id":"3","activity":"testing","location":"cowland","datetime":"2015-09-23T23:10:00.000+08:00","description":"let's not eat cows together that's gross ew","host":2,"created_at":"2015-07-23T23:11:05.504+08:00","updated_at":"2015-07-23T23:11:05.504+08:00"}]} --}}
