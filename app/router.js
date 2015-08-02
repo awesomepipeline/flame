@@ -14,7 +14,7 @@ Router.map(function() {
     this.route('show', { path: ':event_id' });
     this.route('edit', { path: ':event_id/edit' });
     this.route('new');
-  })
+  });
   
   this.route('login');
   this.route('register');
