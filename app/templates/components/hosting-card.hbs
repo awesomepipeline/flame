@@ -1,8 +1,9 @@
 <div class="card grey lighten-5">
   <div class="card-content grey-text text-darken-2">
     <span class="card-title grey-text text-darken-1" style="font-weight: 600">{{card-data.activity}}</span>
-    <p>{{moment-format card-data.datetime 'DD/MM/YYYY'}}</p>
-    <p>{{card-data.description}}</p>
+    <p>Datetime: {{moment-format card-data.datetime 'DD/MM/YYYY'}}</p>
+    <p>Location: {{card-data.location}}</p>
+    <p>Description: {{card-data.description}}</p>    
     <h2>Things to do:</h2>
     <p>Fix the date time format!</p>
   </div>
@@ -12,6 +13,8 @@
   </div>
 
   <div class="card-action" style="float:right">
+    {{!-- An action called in this component must have that corresponding action
+    in the actions hash OF THE COMPONENT --}}
     <a style="cursor: pointer" class="red-text darken-4 response-button" {{action 'delete' card-data}}>Delete</a>
     {{#link-to 'events.edit' card-data.id class="light-blue-text darken-4 response-button"}}Edit{{/link-to}}
     {{#link-to 'events.show' card-data.id class="light-green-text accent-4 response-button"}}Details{{/link-to}}

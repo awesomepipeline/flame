@@ -1,0 +1,23 @@
+<div class="card grey lighten-5">
+  <div class="card-content grey-text text-darken-2">
+    <form {{action 'submit' on='submit'}}>
+      <div class="form-group">
+        <label for="">Activity</label>
+        {{input class='form-control' value=event.activity}}
+      </div>
+      <div class="form-group">
+        <label for="">Datetime</label>
+        {{input class='form-control' value=event.datetime}}
+      </div>
+      <div class="form-group">
+        <label for="">Location</label>
+        {{input class='form-control' value=event.location}}
+      </div>
+      <div class="form-group">
+        <label for="">Description</label>
+        {{textarea class='form-control' value=event.description}}
+      </div>
+      <button class="btn btn-primary" type="submit">Add event</button>
+    </form>
+  </div>
+</div>

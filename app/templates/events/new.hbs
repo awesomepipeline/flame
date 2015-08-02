@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col m8 offset-m2">
+    <div class="col m10 offset-m1">
       {{errorMessage}}
-      <form class="col s12">
+      {{!-- <form class="col s12">
         <div class="row">
           <div class="input-field col s12">
           {{input value=model.activity}}
@@ -29,8 +29,8 @@
           <a {{action "cancel"}} class="red-text btn-flat waves-effect waves-light response-button" type="submit" name="action">Back</a>
           <a {{action "save"}} class="green-text btn-flat waves-effect waves-light response-button" type="submit" name="action">Create Event</a>
         </div> 
-      </form>     
-
+      </form>  --}}   
+      {{event-form action="createEvent" event=event}} 
     </div>
   </div>
 </div>
