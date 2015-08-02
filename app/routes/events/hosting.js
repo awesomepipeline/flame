@@ -16,10 +16,18 @@ export default AuthRoute.extend({
     //   console.log(response);
     //   return response;
     // });
-  }
+  },
 
-  // model() {
-  //   return this.store.findAll('user');
-  // }
+  actions: {
+    delete(event) {
+      console.log('the event is passed to the hosting route!');
+      console.log(event);
+    
+      var eventToDelete = this.store.findRecord('event', event.id).then(function(post) {
+        post.destroyRecord();
+      })
+      return false;
+    }
+  }
   
 });
