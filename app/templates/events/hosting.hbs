@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col m8 offset-m2">
         <div id="hosting">
-          {{#each model as |event|}}
+          {{!-- Need to use model.events because this isn't fetching from Ember Data --}}
+          {{#each model.events as |event|}}
             <div>{{hosting-card card-data=event}}</div>
           {{/each}}
        </div>

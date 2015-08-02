@@ -1,24 +1,25 @@
+import Ember from 'ember';
 import AuthRoute from './auth-route';
 
 export default AuthRoute.extend({
-  // model: function() {
-  //   var settings = {
-  //     "async": true,
-  //     "crossDomain": true,
-  //     "url": "http://localhost:3000/api/v1/user/events",
-  //     "method": "GET",
-  //     "headers": {
-  //       "authorization": "Token token=\"zFv7vEy55ZD7cnbos1wV\",  username=\"tester1\""
-  //     }
-  //   }
+  model: function() {
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://localhost:3000/api/v1/user/events",
+      "method": "GET",
+    };
 
-  //   Ember.$.ajax(settings).done(function (response) {
-  //     console.log(response);
-  //   });
-  // }
+    return Ember.$.ajax(settings);
 
-  model() {
-    return this.store.findAll('event');
+    // Ember.$.ajax(settings).done(function (response) {
+    //   console.log(response);
+    //   return response;
+    // });
   }
+
+  // model() {
+  //   return this.store.findAll('user');
+  // }
   
 });
