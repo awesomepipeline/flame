@@ -1,0 +1,18 @@
+<div class="card grey lighten-5">
+  <div class="card-content grey-text text-darken-2">
+    <span class="card-title grey-text text-darken-1" style="font-weight: 600">{{card-data.activity}}</span>
+    <p>{{moment-format card-data.datetime 'DD/MM/YYYY'}}</p>
+    <p>{{card-data.description}}</p>
+  </div>
+  
+  <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">
+    <i>Event is happening {{moment-from-now card-data.datetime}}</i>
+  </div>
+
+  <div class="card-action" style="float:right">
+    <a class="red-text darken-4 response-button" href="#">Delete</a>
+    <a class="light-green-text accent-4 response-button" href="#">Edit</a>
+    {{#link-to 'events.show' card-data.id class="light-blue-text darken-4 response-button"}} Details {{/link-to}}
+    {{card-data.id}}
+  </div>
+</div>
