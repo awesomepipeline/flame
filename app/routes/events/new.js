@@ -5,17 +5,18 @@ export default AuthRoute.extend({
   //   return this.store.createRecord('event');
   // },
   model() {
-    return { 
-      // activity: 'default activity',
-      // datetime: '2015-08-30T00:00:00.000+08:00',
-      // location: 'default location',
-      // description: 'default description',
+    // return { 
+    //   // activity: 'default activity',
+    //   // datetime: '2015-08-30T00:00:00.000+08:00',
+    //   // location: 'default location',
+    //   // description: 'default description',
 
-      activity: '',
-      datetime: '2015-08-30T00:00:00.000+08:00',
-      location: '',
-      description: ''
-    }
+    //   activity: '',
+    //   datetime: '2015-08-30T00:00:00.000+08:00',
+    //   location: '',
+    //   description: ''
+    // }
+    return this.store.createRecord('event');
   },
   setupController(controller, model) {
     controller.set('event', model);
@@ -26,7 +27,7 @@ export default AuthRoute.extend({
       console.log(_event.datetime);
 
       var _this = this;
-      this.store.createRecord('event', _event).save().then(function() {
+      _event.save().then(function() {
         _this.transitionTo('events.show', _event)
       });
     }
