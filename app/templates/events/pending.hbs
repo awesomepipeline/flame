@@ -1,5 +1,20 @@
-Pending events
+<div class="container">
+  <div class="row">
+    <div class="col m8 offset-m2">
+        {{#each model.events as |event|}}
+          <div>{{invited-summary-card card-data=event deleteEvent="delete"}}</div>
 
-<div>Auth token</div>
-{{session.store}} <br>
-Username: {{session.content.secure.username}}
+        {{else}} 
+
+        Boohoo, nobody has invited you to any events :(
+
+        {{/each}}
+    </div>
+  </div>
+  Deubg details: <br>
+  <div>Auth token</div>
+  {{session.store}} <br>
+  Username: {{session.content.secure.username}}
+</div>
+
+

@@ -11,7 +11,9 @@ Router.map(function() {
     this.route('pending');
     this.route('responded');
     this.route('notifications');
-    this.route('show', { path: ':event_id' });
+    this.route('show', { path: ':event_id' }, function() {
+      this.route('notification');
+    });
     this.route('edit', { path: ':event_id/edit' });
     this.route('new');
   });
