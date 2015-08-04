@@ -4,6 +4,11 @@
         <div id="hosting">
           {{#each model as |event|}}
             <div>{{hosting-summary-card card-data=event deleteEvent="delete"}}</div>
+
+          {{else}} 
+
+          You have no created any events. Maybe you would like to create one now?
+
           {{/each}}
        </div>
     </div>
