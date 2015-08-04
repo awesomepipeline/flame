@@ -1,1 +1,17 @@
-Notifications that you might be having!
+<div class="container">
+  <div class="row">
+    <div class="col m8 offset-m2">
+        {{#each model.events as |event|}}
+          <div>{{invited-summary-card card-data=event deleteEvent="delete"}}</div>
+
+        {{else}} 
+
+        Boohoo, nobody has invited you to any events :(
+
+        {{/each}}     
+    </div>
+  </div>
+</div>
+
+
+
