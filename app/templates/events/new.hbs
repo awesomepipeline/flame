@@ -1,35 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col m10 offset-m1">
+      {{!-- TODO: implement errorMessage --}}
       {{errorMessage}}
-      {{!-- <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-          {{input value=model.activity}}
-          <label for="activity">Activity</label>
-          </div>
-        </div>
-        <div class="row">
-          Date time picker :(
-          <input type="date" class="datepicker">
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            {{input value=model.location}}
-            <label for="location">Location</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">            
-            {{textarea value=model.description class="materialize-textarea"}}
-            <label for="description">Description</label>
-          </div>
-        </div>
-        <div class="row" style="float:right">
-          <a {{action "cancel"}} class="red-text btn-flat waves-effect waves-light response-button" type="submit" name="action">Back</a>
-          <a {{action "save"}} class="green-text btn-flat waves-effect waves-light response-button" type="submit" name="action">Create Event</a>
-        </div> 
-      </form>  --}}   
       {{event-form action="createEvent" event=event}} 
     </div>
   </div>

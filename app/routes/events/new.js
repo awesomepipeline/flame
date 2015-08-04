@@ -1,9 +1,6 @@
 import AuthRoute from './auth-route';
 
 export default AuthRoute.extend({
-  // model() {
-  //   return this.store.createRecord('event');
-  // },
   model() {
     // return { 
     //   // activity: 'default activity',
@@ -23,7 +20,7 @@ export default AuthRoute.extend({
   },
   actions: {
     createEvent(_event) {
-      console.log('hey this is bubbled to me, i should do something!');
+      console.log('New event: hey this is bubbled to me, i should do something!');
       console.log(_event.datetime);
 
       var _this = this;
