@@ -4,7 +4,7 @@
         <div id="hosting">
           {{!-- Need to use model.events because this isn't fetching from Ember Data --}}
           {{#each model.events as |event|}}
-            <div>{{hosting-card card-data=event deleteEvent="delete"}}</div>
+            <div>{{hosting-summary-card card-data=event deleteEvent="delete"}}</div>
           {{/each}}
        </div>
     </div>
