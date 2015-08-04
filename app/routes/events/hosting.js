@@ -3,19 +3,21 @@ import AuthRoute from './auth-route';
 
 export default AuthRoute.extend({
   model: function() {
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "http://localhost:3000/api/v1/user/events",
-      "method": "GET",
-    };
+    // var settings = {
+    //   "async": true,
+    //   "crossDomain": true,
+    //   "url": "http://localhost:3000/api/v1/user/events",
+    //   "method": "GET",
+    // };
 
-    return Ember.$.ajax(settings);
+    // return Ember.$.ajax(settings);
 
     // Ember.$.ajax(settings).done(function (response) {
     //   console.log(response);
     //   return response;
     // });
+
+    return this.store.findAll('event');
   },
 
   actions: {
