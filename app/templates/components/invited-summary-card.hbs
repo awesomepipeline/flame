@@ -1,7 +1,10 @@
 <div class="card grey lighten-5">
   <div class="card-content grey-text text-darken-2">
-    <span class="card-title grey-text text-darken-1" style="font-weight: 600">{{card-data.activity}}</span>
-    <p>{{card-data.description}}</p>
+    <span class="card-title grey-text text-darken-1" style="font-weight: 600">{{card-data.activity}}</span>&nbsp;&nbsp;by {{card-data.host.fullname}}
+    <p>Datetime: {{card-data.datetime}}</p>
+    <p>Location: {{card-data.location}}</p>
+    <p>Description: {{card-data.description}}</p>
+
   </div>
   
   <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">
@@ -12,7 +15,8 @@
     <a class="red-text darken-4 response-button" href="#">Decline</a>
     <a class="amber-text darken-4 response-button" href="#">Suggest</a>
     <a class="light-green-text accent-4 response-button" href="#">Accept</a>
+    {{#link-to 'events.show' card-data.id class="light-blue-text darken-4 response-button"}}Details{{/link-to}}
   </div>
 </div>
 
-{{!-- {"events":[{"id":"1","activity":"How now brown cow","location":"this is cow","datetime":"2015-08-08T17:03:00.000+08:00","description":"hear me moo","host":2,"created_at":"2015-07-08T17:04:05.466+08:00","updated_at":"2015-07-08T17:04:05.466+08:00"},{"id":"2","activity":"cow","location":"asd","datetime":"2015-07-20T01:34:00.000+08:00","description":"dd","host":2,"created_at":"2015-07-12T01:35:02.801+08:00","updated_at":"2015-07-12T01:35:02.801+08:00"},{"id":"3","activity":"testing","location":"cowland","datetime":"2015-09-23T23:10:00.000+08:00","description":"let's not eat cows together that's gross ew","host":2,"created_at":"2015-07-23T23:11:05.504+08:00","updated_at":"2015-07-23T23:11:05.504+08:00"}]} --}}
+{{!-- {"events":[{"id":"5eeaec048b03d7f5a26e45e107c5ce96f9e8f160df083f09","activity":"eat sleep slack","location":"your house","datetime":"2015-08-30T00:00:00.000+08:00","description":"no idea what to do","created_at":"2015-08-04T18:03:19.087+08:00","updated_at":"2015-08-04T18:03:19.087+08:00","host":{"id":2,"created_at":"2015-08-04T17:59:09.852+08:00","updated_at":"2015-08-04T20:46:57.187+08:00","fullname":"Tester 1","username":"tester1","admin":false,"auth_token":"YpEEF9xFJuDo8x-y7Zqr"}},{"id":"8318f118e8bb9629ea2eaedd5b53bb5a7ca64786a425dda6","activity":"Do nothing for the day","location":"My house","datetime":"2015-08-30T00:00:00.000+08:00","description":"IDK do what shitx","created_at":"2015-08-04T19:07:29.499+08:00","updated_at":"2015-08-04T19:46:00.308+08:00","host":{"id":2,"created_at":"2015-08-04T17:59:09.852+08:00","updated_at":"2015-08-04T20:46:57.187+08:00","fullname":"Tester 1","username":"tester1","admin":false,"auth_token":"YpEEF9xFJuDo8x-y7Zqr"}},{"id":"a3492e14a78bafca30137efe82bb998cc4f80edcc5be5f8b","activity":"Tester2 creating events","location":"Tester 2 hours","datetime":"2015-08-30T00:00:00.000+08:00","description":"Testing 2","created_at":"2015-08-04T20:06:16.222+08:00","updated_at":"2015-08-04T20:06:16.222+08:00","host":{"id":3,"created_at":"2015-08-04T17:59:09.938+08:00","updated_at":"2015-08-04T20:46:31.420+08:00","fullname":"Tester 2","username":"tester2","admin":false,"auth_token":"DXU6C4Y4xxydKct-PaLE"}}]} --}}
