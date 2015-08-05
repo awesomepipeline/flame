@@ -6,15 +6,15 @@ export default AuthRoute.extend({
   //   return this.store.findRecord('event', params.event_id);
   // },
   deactivate: function() {
-    var currentModel = this.modelFor('events.show');
-    var currentUser = this.get('session.content.secure.username');
+    // var currentModel = this.modelFor('events.show');
+    // var currentUser = this.get('session.content.secure.username');
 
-    console.log(currentModel);
-    // console.log(currentModel.get('host').username);
-    console.log(this.get('session.content.secure.username'));
+    // console.log(currentModel);
+    // // console.log(currentModel.get('host').username);
+    // console.log(this.get('session.content.secure.username'));
 
 
-    this.store.deleteRecord(this.modelFor('events.show'));
+    // this.store.deleteRecord(this.modelFor('events.show'));
   }
 });
 
