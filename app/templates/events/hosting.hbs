@@ -3,7 +3,7 @@
     <div class="col m8 offset-m2">
         <div id="hosting">
           {{#each model.events as |event|}}
-            <div>{{hosting-summary-card card-data=event deleteEvent="delete"}}</div>
+            <div>{{hosting-card-summary card-data=event deleteEvent="delete"}}</div>
 
           {{else}} 
 
