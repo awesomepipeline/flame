@@ -1,9 +1,14 @@
 <div class="card grey lighten-5">
   <div class="card-content grey-text text-darken-2">
-    <span class="card-title grey-text text-darken-1" style="font-weight: 600">{{card-data.activity}}</span>
-    <p>Datetime: {{moment-format card-data.datetime 'DD/MM/YYYY'}}</p>
-    <p>Description: {{card-data.description}}</p>
-    <p>Host (debug): {{card-data.host.fullname}}</p>
+    <span class="card-title grey-text text-darken-2" style="font-weight: 600"><h4>{{card-data.activity}}</h4></span>
+    <h6 class="grey-text text-darken-1">{{moment-format card-data.datetime 'LLL'}}</h6>
+    <h6 class="grey-text text-darken-1">{{card-data.location}}</h6>
+    <div class="divider" style="margin:20px"></div>
+    <blockquote>
+      <h6>{{card-data.description}}</h6>
+    </blockquote>
+    
+    {{!-- <p>Host (debug): {{card-data.host.fullname}}</p>
     <div class="row">
     <form class="col s12">
       <div class="row">
@@ -34,13 +39,13 @@
         </div>
       </div>
     </form>
-  </div>
+  </div> --}}
         
-    <h2>Things I have to add:</h2>
+{{!--     <h2>Things I have to add:</h2>
     <p>Who is invited</p>
     <p>Button to invite more people</p>
     <p>Suggestions</p>
-    <p>Messages</p>
+    <p>Messages</p> --}}
   </div>
   
   <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">

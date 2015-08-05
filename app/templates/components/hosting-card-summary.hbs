@@ -4,8 +4,10 @@
     <h6 class="grey-text text-darken-1">{{moment-format card-data.datetime 'LLL'}}</h6>
     <h6 class="grey-text text-darken-1">{{card-data.location}}</h6>
     <div class="divider" style="margin:20px"></div>
-    <h6>{{card-data.description}}</h6>
-    <p>Host (debug): {{card-data.host.fullname}}</p>    
+    <blockquote>
+      <h6>{{card-data.description}}</h6>
+    </blockquote>
+    {{!-- <p>Host (debug): {{card-data.host.fullname}}</p>     --}}
   </div>
   
   <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">
