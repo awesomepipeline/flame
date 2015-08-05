@@ -3,15 +3,19 @@
     <form {{action 'submit' on='submit'}}>
       <div class="form-group">
         <label for="">Activity</label>
-        {{input class='form-control' value=event.activity}}
+        {{input value=event.activity}}
       </div>
       <div class="form-group">
-        <label for="">Datetime</label>
-        {{input class='form-control' value=event.datetime}}
+        <label for="">Date</label>
+        {{input type="date" value=event.date}}
+      </div>
+      <div class="form-group">
+        <label for="">Time</label>
+        {{input type="time" value=event.time}}
       </div>
       <div class="form-group">
         <label for="">Location</label>
-        {{input class='form-control' value=event.location}}
+        {{input value=event.location}}
       </div>
       <div class="form-group">
         <label for="">Description</label>
@@ -21,6 +25,7 @@
     </form>
   </div>
 </div>
+
 
 {{!-- <div class="card grey lighten-5">
   <div class="card-content grey-text text-darken-2">
