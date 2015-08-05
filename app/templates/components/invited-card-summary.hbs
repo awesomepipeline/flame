@@ -1,12 +1,12 @@
 <div class="card grey lighten-5">
   <div class="card-content grey-text text-darken-2">
     <span class="card-title grey-text text-darken-2" style="font-weight: 600"><h4>{{card-data.activity}}</h4></span>by {{card-data.host.fullname}}
-    <h6 class="grey-text text-darken-1">{{moment-format card-data.datetime 'LLL'}}</h6>
-    <h6 class="grey-text text-darken-1">{{card-data.location}}</h6>
-    <div class="divider" style="margin:20px"></div>
     <blockquote>
-      <h6>{{card-data.description}}</h6>
+      <h6 class="grey-text text-darken-1">{{moment-format card-data.datetime 'LLL'}}</h6>
+      <h6 class="grey-text text-darken-1">{{card-data.location}}</h6>    
+      <div class="divider" style="margin:20px 20px 20px 0px"></div>
     </blockquote>
+    <h6>{{card-data.description}}</h6>
   </div>
   
   <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">
