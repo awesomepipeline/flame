@@ -10,7 +10,7 @@ Router.map(function() {
     this.route('hosting');
     this.route('notifications');
     this.route('show', { path: ':event_id' });
-    this.route('notification', { path: ':event_id/notification' });
+    this.route('invitation', { path: ':event_id/invitation' });
     this.route('edit', { path: ':event_id/edit' });
     this.route('new');
   });
