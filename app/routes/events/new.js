@@ -1,13 +1,8 @@
+import Ember from 'ember';
 import AuthRoute from './auth-route';
 import moment from 'moment';
 
 export default AuthRoute.extend({
-  // Ember data way
-  // model: function() {
-  //   return this.store.createRecord('event');
-  // }
-
-  // Hand Rolled model
   model: function() {
     return { 
       activity: '',
@@ -15,7 +10,7 @@ export default AuthRoute.extend({
       time: '00:00',
       location: '',
       description: ''
-    }
+    };
   },
 
   setupController(controller, model) {
@@ -47,12 +42,6 @@ export default AuthRoute.extend({
       return Ember.$.ajax(settings).then(function(_event) {
         _this.transitionTo('events.show', _event);
       });
-
-      // Ember data way
-      // var _this = this;
-      // _event.save().then(function() {
-      //   _this.transitionTo('events.show', _event)
-      // });
     }
   }
 });

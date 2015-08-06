@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import AuthRoute from './auth-route';
 
 export default AuthRoute.extend({

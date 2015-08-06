@@ -2,11 +2,6 @@ import Ember from 'ember';
 import moment from 'moment';
 
 export default Ember.Route.extend({
-  // model(params) {
-  //   return this.store.findAll('event', params.event_id);
-  // },
-
-  // Hand Rolled Model
   model(params) {
     var settings = {
       "async": true,
@@ -22,12 +17,13 @@ export default Ember.Route.extend({
       data.activity = res.activity;
       data.datetime = res.datetime;
       data.date = moment(res.datetime).format("YYYY-MM-DD");
-      data.time = moment(res.datetime).format("hh:mm")
+      data.time = moment(res.datetime).format("hh:mm");
       data.location = res.location;
       data.description = res.description;
       
+      // Return statement is important!
       return data;
-    })
+    });
   },
 
   setupController(controller, model) {
@@ -35,15 +31,6 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    // updateEvent: function(_event) {
-    //   console.log("Edit action: this is bubbled to me");
-    //   var _this = this;
-    //   _event.save().then(function(_event) {
-    //     console.log(_event);
-    //     _this.transitionTo('events.show', _event);
-    //   });
-    // }
-
     updateEvent: function(_event) {
       var settings = {
         "async": true,

@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import AuthRoute from './auth-route';
 
 export default AuthRoute.extend({
@@ -10,10 +11,5 @@ export default AuthRoute.extend({
     };
 
     return Ember.$.ajax(settings);
-
-    Ember.$.ajax(settings).done(function (response) {
-      console.log(response);
-      return response;
-    });
   }
 });
