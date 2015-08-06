@@ -11,6 +11,7 @@ export default Ember.Route.extend({
     };
     var _this = this;
 
+    // TODO: transition to invitations/:invitation_id when the structure is set up
     return Ember.$.ajax(settings).done(function(response) {
       console.log(response);
       _this.transitionTo('events.notifications');

@@ -6,13 +6,29 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  // this.route('events', function() {
+  //   this.route('hosting');
+  //   this.route('notifications');
+  //   this.route('show', { path: ':event_id' });
+  //   this.route('invitation', { path: ':event_id/invitation' });
+  //   this.route('edit', { path: ':event_id/edit' });
+  //   this.route('new');
+  // });
+
   this.route('events', function() {
-    this.route('hosting');
-    this.route('notifications');
-    this.route('show', { path: ':event_id' });
-    this.route('invitation', { path: ':event_id/invitation' });
-    this.route('edit', { path: ':event_id/edit' });
     this.route('new');
+    this.route('show', { path: ':event_id' });
+    this.route('edit', { path: ':event_id/edit' });
+    this.route('invitation', { path: ':event_id/invitation' });    
+  });
+
+  this.route('invitations', function() {
+    this.route('show', { path: ':invitation_id' });
+    this.route('suggest', { path: ':invitation_id/suggest' }, function() {
+      this.route('activity');
+      this.route('datetime');
+      this.route('location');
+    })
   });
   
   this.route('login');

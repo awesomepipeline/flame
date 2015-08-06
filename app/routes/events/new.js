@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import AuthRoute from './auth-route';
+import AuthRoute from '../auth-route';
 import moment from 'moment';
 
 export default AuthRoute.extend({

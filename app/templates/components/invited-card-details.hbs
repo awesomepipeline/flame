@@ -1,12 +1,15 @@
 <div class="card grey lighten-5">
   <div class="card-content grey-text text-darken-2">
-    <span class="card-title grey-text text-darken-2" style="font-weight: 600"><h4>{{card-data.activity}}</h4></span>by {{card-data.host.fullname}}
+    <span class="card-title grey-text text-darken-2" style="font-weight: 600"><h4>{{card-data.activity}}</h4></span>
     <blockquote>
       <h6 class="grey-text text-darken-1">{{moment-format card-data.datetime 'LLL'}}</h6>
       <h6 class="grey-text text-darken-1">{{card-data.location}}</h6>    
       <div class="divider" style="margin:20px 20px 20px 0px"></div>
     </blockquote>
     <h6>{{card-data.description}}</h6>
+    <div class="divider" style="margin:20px"></div>
+    <h6>Invitation link:</h6>
+    <textarea class="materialize-textarea">http://localhost:4200/events/{{card-data.id}}/invitation</textarea>
   </div>
   
   <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">
@@ -14,9 +17,8 @@
   </div>
 
   <div class="card-action" style="float:right">
-    <a class="red-text darken-4 response-button" href="#">Decline</a>
-    <a class="amber-text darken-4 response-button" href="#">Suggest</a>
-    <a class="light-green-text accent-4 response-button" href="#">Accept</a>
-    {{#link-to 'invitations.show' card-data.id class="light-blue-text darken-4 response-button"}}Details{{/link-to}}
+    {{!-- {{#link-to 'events.edit' card-data.id class="light-green-text accent-4 response-button"}}Edit{{/link-to}} --}}
+    This is an invitation card
   </div>
 </div>
+

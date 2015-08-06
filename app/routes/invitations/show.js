@@ -6,7 +6,7 @@ export default AuthRoute.extend({
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://localhost:3000/api/v1/user/events/" + params.event_id,
+      "url": "http://localhost:3000/api/v1/user/events/" + params.invitation_id,
       "method": "GET",
     };
     return Ember.$.ajax(settings);
