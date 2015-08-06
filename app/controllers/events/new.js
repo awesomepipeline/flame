@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  authenticator: 'simple-auth-authenticator:devise',
   // isValid: Ember.computed(
   //   'model.activity',
   //   'model.location',
