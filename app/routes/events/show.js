@@ -24,3 +24,4 @@ export default AuthRoute.extend({
     // this.store.deleteRecord(this.modelFor('events.show'));
   }
 });
+
