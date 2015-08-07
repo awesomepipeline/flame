@@ -8,8 +8,24 @@
     </blockquote>
     <h6>{{card-data.description}}</h6>
     <div class="divider" style="margin:20px"></div>
-    <h6>Invitation link:</h6>
-    <textarea class="materialize-textarea">http://localhost:4200/events/{{card-data.id}}/invitation</textarea>
+    
+    <h5>Accepted</h5>
+    <ul>
+    {{#each invitation-details.accepted as |accepted|}}
+      <li>{{accepted.fullname}}</li>
+    {{else}}
+    Nobody has accepted this event yet :(
+    {{/each}}
+    </ul>
+
+    <h5>Rejected</h5>
+    <ul>
+    {{#each invitation-details.rejected as |rejected|}}
+      <li>{{rejected.fullname}}</li>
+    {{else}}
+    Nobody has rejected this event yet :)
+    {{/each}}
+    </ul>
   </div>
   
   <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">
@@ -17,8 +33,9 @@
   </div>
 
   <div class="card-action" style="float:right">
-    {{!-- {{#link-to 'events.edit' card-data.id class="light-green-text accent-4 response-button"}}Edit{{/link-to}} --}}
-    This is an invitation card
+    <a class="red-text darken-4 response-button" {{action "decline"}}>Decline</a>
+    <a class="amber-text darken-4 response-button" href="#">Suggest</a>
+    <a class="light-green-text accent-4 response-button" {{action "accept"}}>Accept</a>
   </div>
 </div>
 
