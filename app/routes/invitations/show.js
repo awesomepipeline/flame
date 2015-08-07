@@ -24,5 +24,33 @@ export default AuthRoute.extend({
       invitationDetails: Ember.$.ajax(invitationSettings)
     });
   },
+
+  actions: {
+    decline: function(invitationId) {
+      Materialize.toast("Event declined :(", 2000);
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:3000/api/v1/events/" + invitationId + "/reject",
+        "method": "GET",
+      };
+
+      Ember.$.ajax(settings);
+      this.refresh();
+    },
+
+    accept: function(invitationId) {
+      Materialize.toast("Event accepted :)", 2000);
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:3000/api/v1/events/" + invitationId + "/accept",
+        "method": "GET",
+      };
+
+      Ember.$.ajax(settings);
+      this.refresh();
+    }
+  }
 });
 
