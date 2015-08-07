@@ -3,6 +3,11 @@ import Ember from 'ember';
 import InvitationsAdapter from 'flame/adapter/invitations';
 
 export default AuthRoute.extend({
+  activate: function() {
+    // Force tabs to refresh
+    $('ul.tabs').tabs();
+  },
+
   model: function(params) {
     var _this = this;
 
@@ -28,7 +33,7 @@ export default AuthRoute.extend({
 
   actions: {
     decline: function(invitationId) {
-      Materialize.toast("Event declined :(", 2000);
+      Materialize.toast("Invite declined :(", 2000);
       var settings = {
         "async": true,
         "crossDomain": true,
@@ -43,7 +48,7 @@ export default AuthRoute.extend({
     },
 
     accept: function(invitationId) {
-      Materialize.toast("Event accepted :)", 2000);
+      Materialize.toast("Invite accepted :)", 2000);
       var settings = {
         "async": true,
         "crossDomain": true,

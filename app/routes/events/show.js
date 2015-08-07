@@ -4,9 +4,15 @@ import EventsAdapter from 'flame/adapter/events';
 export default AuthRoute.extend({
   adapter: EventsAdapter.create(),
 
+  // TODO: follow invitations show to fetch the people who have accepted and declined
   model: function(params) {
     return this.get('adapter').showModel(params);
   },
+
+  activate: function() {
+    // Force tabs to refresh
+    $('ul.tabs').tabs();
+  }
 
   // deactivate: function() {
   //   var currentModel = this.modelFor('events.show');
