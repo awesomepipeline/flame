@@ -31,6 +31,8 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    // Note to self: the _event is passed in from the event-form component's js file
+    // This should end your future confusions.
     updateEvent: function(_event) {
       var settings = {
         "async": true,
