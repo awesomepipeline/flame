@@ -39,9 +39,10 @@ export default AuthRoute.extend({
         }
       };
       var _this = this;
-      return Ember.$.ajax(settings).then(function(_event) {
-        _this.transitionTo('events.show', _event);
-      });
+      return Ember.$.ajax(settings)
+        .then(function(_event) {
+          _this.transitionTo('events.show', _event);
+       });
     }
   }
 });
