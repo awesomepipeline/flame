@@ -129,6 +129,7 @@ ul {
 }
 
 .response-button {
+  cursor: pointer;
   transition: 0.3s ease-out,
               color 0.3s ease-out !important;
   &:hover, &:active {
