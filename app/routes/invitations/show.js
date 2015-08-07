@@ -1,5 +1,6 @@
+import AuthRoute from 'flame/routes/auth-route';
 import Ember from 'ember';
-import AuthRoute from '../auth-route';
+import InvitationsAdapter from 'flame/adapter/invitations';
 
 export default AuthRoute.extend({
   model: function(params) {
@@ -35,8 +36,10 @@ export default AuthRoute.extend({
         "method": "GET",
       };
 
-      Ember.$.ajax(settings);
-      this.refresh();
+      var _this = this;
+      Ember.$.ajax(settings).then(function() {
+        _this.refresh();
+      });
     },
 
     accept: function(invitationId) {
@@ -48,8 +51,10 @@ export default AuthRoute.extend({
         "method": "GET",
       };
 
-      Ember.$.ajax(settings);
-      this.refresh();
+      var _this = this;
+      Ember.$.ajax(settings).then(function() {
+        _this.refresh();
+      });
     }
   }
 });

@@ -1,16 +1,13 @@
+import AuthRoute from 'flame/routes/auth-route';
 import Ember from 'ember';
-import AuthRoute from '../auth-route';
+import InvitationsAdapter from 'flame/adapter/invitations';
+
 
 export default AuthRoute.extend({
-  model: function() {
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "http://localhost:3000/api/v1/user/events/invited",
-      "method": "GET",
-    };
+  adapter: InvitationsAdapter.create(),
 
-    return Ember.$.ajax(settings);
+  model: function() {
+    return this.get('adapter').indexModel();
   },
 
   actions: {

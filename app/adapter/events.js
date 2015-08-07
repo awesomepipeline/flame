@@ -15,7 +15,7 @@ export default Ember.Object.extend({
       "url": url,
       "method": "GET",
     };
-    console.log("argument passed in: " + args);
+    
     return settings;
   },  
 
