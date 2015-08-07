@@ -1,7 +1,6 @@
-import Ember from 'ember';
-import moment from 'moment';
-import EventsAdapter from 'flame/adapter/events';
 import AuthRoute from 'flame/routes/auth-route';
+import Ember from 'ember';
+import EventsAdapter from 'flame/adapter/events';
 
 export default AuthRoute.extend({
   adapter: EventsAdapter.create(),
