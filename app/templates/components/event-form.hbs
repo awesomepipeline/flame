@@ -7,7 +7,7 @@
       </div>
       <div class="form-group">
         <label for="">Date</label>
-        {{input type="date" value=event.date}}
+        {{input type="date" class="datepicker" value=event.date}}
       </div>
       <div class="form-group">
         <label for="">Time</label>
@@ -26,31 +26,10 @@
   </div>
 </div>
 
-
-{{!-- <div class="card grey lighten-5">
-  <div class="card-content grey-text text-darken-2">
-    <form class="col s12" {{action 'submit' on='submit'}}>
-      <div class="row">
-        <div class="input-field col s12">
-          {{input class='validate' type='text' value=event.activity}}
-          <label for="email" class="active">Activity</label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="">Datetime</label>
-        {{input class='form-control' value=event.datetime}}
-      </div>
-      <div class="form-group">
-        <label for="">Location</label>
-        {{input value=event.location}}
-      </div>
-      <div class="form-group">
-        <label for="">Description</label>
-        {{textarea class='materialize-textarea' value=event.description}}
-      </div>
-      <div class="row col s12">
-        <button class="btn btn-primary" type="submit">{{buttonLabel}}</button>
-      </div>
-    </form>
-  </div>
-</div> --}}
+<script type="text/javascript">
+   $('.datepicker').pickadate({
+    format: 'yyyy-mm-dd',
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });        
+</script>
