@@ -22,8 +22,8 @@ module.exports = function(environment) {
   // ember-simple-auth configurations
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:devise',
-    routeAfterAuthentication: 'events.hosting',
-    routeIfAlreadyAuthenticated: 'events.hosting',
+    routeAfterAuthentication: 'events',
+    routeIfAlreadyAuthenticated: 'events',
     crossOriginWhitelist: ['http://localhost:3000']
   };
 
