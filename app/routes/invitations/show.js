@@ -3,43 +3,21 @@ import Ember from 'ember';
 import InvitationsAdapter from 'flame/adapter/invitations';
 
 export default AuthRoute.extend({
+  adapter: InvitationsAdapter.create(),
+
   activate: function() {
     // Force tabs to refresh
     $('ul.tabs').tabs();
   },
 
   model: function(params) {
-    var _this = this;
-
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "http://localhost:3000/api/v1/user/events/" + params.invitation_id,
-      "method": "GET",
-    };   
-
-    var invitationSettings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "http://localhost:3000/api/v1/events/" + params.invitation_id + "/responses",
-      "method": "GET",
-    };
-
-    return Ember.RSVP.hash({
-      eventDetails: Ember.$.ajax(settings),
-      invitationDetails: Ember.$.ajax(invitationSettings)
-    });
+    return this.get('adapter').showModel(params.invitation_id);
   },
 
   actions: {
     decline: function(invitationId) {
       Materialize.toast("Invite declined :(", 2000);
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "http://localhost:3000/api/v1/events/" + invitationId + "/reject",
-        "method": "GET",
-      };
+      var settings = this.get('adapter').createResponseSettings(invitationId, "reject");
 
       var _this = this;
       Ember.$.ajax(settings).then(function() {
@@ -49,12 +27,7 @@ export default AuthRoute.extend({
 
     accept: function(invitationId) {
       Materialize.toast("Invite accepted :)", 2000);
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "http://localhost:3000/api/v1/events/" + invitationId + "/accept",
-        "method": "GET",
-      };
+      var settings = this.get('adapter').createResponseSettings(invitationId, "accept");
 
       var _this = this;
       Ember.$.ajax(settings).then(function() {

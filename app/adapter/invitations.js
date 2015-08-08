@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import moment from 'moment';
 
 export default Ember.Object.extend({
   baseUrl: 'http://localhost:3000/api/v1/user/events/',
@@ -23,4 +22,36 @@ export default Ember.Object.extend({
     var settings = this.getSettings("invited");
     return Ember.$.ajax(settings);
   },
+
+  showModel: function(invitationId) {
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": this.get('baseUrl') + invitationId,
+      "method": "GET",
+    };   
+
+    var invitationSettings = {
+      "async": true,
+      "crossDomain": true,
+      "url": this.get('invitationUrl') + invitationId + "/responses",
+      "method": "GET",
+    };
+
+    return Ember.RSVP.hash({
+      eventDetails: Ember.$.ajax(settings),
+      invitationDetails: Ember.$.ajax(invitationSettings)
+    });
+  },
+
+  createResponseSettings: function(invitationId, type) {
+    var url = this.get('invitationUrl') + invitationId + "/" + type;
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "GET",
+    };
+    return settings;
+  }
 }); 
