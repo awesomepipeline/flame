@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
       console.log('registering user');
 
       var settings = {
-        url: 'http://localhost:3000/api/v1/users', // the url is wrong, need to get from chunqi
+        url: 'http://localhost:3000/api/v1/users',
         type: 'POST',
         dataType: 'json',
         data: {
