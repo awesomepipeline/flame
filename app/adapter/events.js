@@ -74,7 +74,8 @@ export default Ember.Object.extend({
       data.activity = res.activity;
       data.datetime = res.datetime;
       data.date = moment(res.datetime).format("YYYY-MM-DD");
-      data.time = moment(res.datetime).format("hh:mm");
+      data.time = moment(res.datetime).format("HH:mm");
+      console.log(data.time);
       data.location = res.location;
       data.description = res.description;
       

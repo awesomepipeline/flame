@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <label for="">Time</label>
-        {{input type="time" value=event.time}}
+        {{input value=event.time data-default=event.time id="time-picker"}}
       </div>
       <div class="form-group">
         <label for="">Location</label>
@@ -31,5 +31,9 @@
     format: 'yyyy-mm-dd',
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
-  });        
+  });
+  var input = $('#time-picker');
+  input.clockpicker({
+      autoclose: true
+  });
 </script>
