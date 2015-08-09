@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col m10 offset-m1">
       {{!-- TODO: implement errorMessage --}}
+      {{errors.length}}
       {{#each errors.activity as |error|}}
         <div>{{error.message}}</div>
       {{/each}}
@@ -14,7 +15,7 @@
         <div>{{error.message}}</div>
       {{/each}}
 
-      {{event-form action="createEvent" event=event}} 
+      {{event-form action="createEvent" event=event errors=errors}} 
       {{#link-to 'events' class="waves-effect waves-light btn grey"}}Back{{/link-to}}
     </div>    
   </div>  

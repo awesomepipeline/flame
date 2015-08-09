@@ -1,24 +1,31 @@
 <div class="card grey lighten-5">
   <div class="card-content grey-text text-darken-2">
     <form {{action 'submit' on='submit'}}>
-      <div class="form-group">
-        <label for="">Activity</label>
-        {{input value=event.activity}}
+      <div class="form-group">        
+        <h6 class="grey-text">Activity</h6>
+        {{#if errors.activity}}
+          {{input value=event.activity class="invalid"}}
+          {{#each errors.activity as |error|}}
+            <label class="red-text">{{error.message}}</label>
+          {{/each}}
+        {{else}}
+          {{input value=event.activity}}
+        {{/if}}        
       </div>
       <div class="form-group">
-        <label for="">Date</label>
+        <h6 class="grey-text">Date</h6>
         {{input type="date" class="datepicker" value=event.date}}
       </div>
       <div class="form-group">
-        <label for="">Time</label>
+        <h6 class="grey-text">Time</h6>
         {{input value=event.time data-default=event.time id="time-picker"}}
       </div>
       <div class="form-group">
-        <label for="">Location</label>
+        <h6 class="grey-text">Location</h6>
         {{input value=event.location}}
       </div>
       <div class="form-group">
-        <label for="">Description</label>
+        <h6 class="grey-text">Description</h6>
         {{textarea class='materialize-textarea' value=event.description}}
       </div>
       <button class="btn btn-primary waves-effect waves-light" type="submit">{{buttonLabel}}</button>

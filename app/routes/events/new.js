@@ -22,9 +22,11 @@ export default AuthRoute.extend({
 
   actions: {
     createEvent(_event) {
-      var errors = this.controllerFor('events.new').get('errors');
+      // creating a new DS.Error object, not re-using previously created Error objecct
+      var errors = DS.Errors.create();
       var settings = this.get('adapter').createNewSettings(_event);
       var _this = this;
+
       return Ember.$.ajax(settings)
         .then(function(_event) {
           _this.transitionTo('events.show', _event);
@@ -34,11 +36,16 @@ export default AuthRoute.extend({
           var errorsHash = res.responseJSON.errors;
 
           Object.keys(errorsHash).forEach(function(key) {
+            errors.remove(key, errorsHash[key][0]);
             errors.add(key, errorsHash[key][0]);
             console.log(key, errorsHash[key][0]);
           });
+
+          // Need to set the property again. There's no automatic binding (I would suspect because this
+          // is because the property is defined in Route, not Controller, so need to manually set)
+          _this.controllerFor('events.new').set('errors', errors);
         });
-    }
+    },
   }
 });
 
