@@ -2,9 +2,22 @@
   <div class="row">
     <div class="col m10 offset-m1">
       {{!-- TODO: implement errorMessage --}}
-      {{errorMessage}}
+      {{#each errors.activity as |error|}}
+        <div>{{error.message}}</div>
+      {{/each}}
+
+      {{#each errors.location as |error|}}
+        <div>{{error.message}}</div>
+      {{/each}}
+
+      {{#each errors.datetime as |error|}}
+        <div>{{error.message}}</div>
+      {{/each}}
+
       {{event-form action="createEvent" event=event}} 
       {{#link-to 'events' class="waves-effect waves-light btn grey"}}Back{{/link-to}}
     </div>    
   </div>  
 </div>
+
+{{!-- {"errors":{"activity":["can't be blank"],"location":["can't be blank"],"datetime":["cannot be in the past"]}} --}}

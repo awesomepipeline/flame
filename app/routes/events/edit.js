@@ -19,9 +19,17 @@ export default Ember.Route.extend({
       var settings = this.get('adapter').createUpdateSettings(_event);
       var _this = this;
 
-      return Ember.$.ajax(settings).then(function(_event) {
-        _this.transitionTo('events.show', _event);
-      });
+      return Ember.$.ajax(settings)
+        .then(function(_event) {
+          _this.transitionTo('events.show', _event);
+        })
+        .fail(function(res) {
+          Object.keys(res.errors).forEach(function(key) {
+            errors.add(key, res.errors[0]);
+          });
+        });
     }
   }
 });
+
+// {"errors":{"activity":["can't be blank"],"location":["can't be blank"],"datetime":["cannot be in the past"]}}
