@@ -1,7 +1,9 @@
+import AuthRoute from 'flame/routes/auth-route';
+import DS from 'ember-data';
 import Ember from 'ember';
 import EventsAdapter from 'flame/adapter/events';
 
-export default Ember.Route.extend({
+export default AuthRoute.extend({
   adapter: EventsAdapter.create(),
 
   model(params) {
@@ -10,12 +12,15 @@ export default Ember.Route.extend({
 
   setupController(controller, model) {
     controller.set('event', model);
+    controller.set('errors', DS.Errors.create());
   },
 
   actions: {
     // Note to self: the _event is passed in from the event-form component's js file
     // This should end your future confusions.
     updateEvent: function(_event) {
+      // creating a new DS.Error object, not re-using previously created Error object
+      var errors = DS.Errors.create();
       var settings = this.get('adapter').createUpdateSettings(_event);
       var _this = this;
 
@@ -24,12 +29,17 @@ export default Ember.Route.extend({
           _this.transitionTo('events.show', _event);
         })
         .fail(function(res) {
-          Object.keys(res.errors).forEach(function(key) {
-            errors.add(key, res.errors[0]);
+          var errorsHash = res.responseJSON.errors;
+
+          Object.keys(errorsHash).forEach(function(key) {
+            errors.remove(key, errorsHash[key][0]);
+            errors.add(key, errorsHash[key][0]);
           });
+
+          // Need to set the property again. There's no automatic binding (I would suspect because this
+          // is because the property is defined in Route, not Controller, so need to manually set)
+          _this.controllerFor('events.edit').set('errors', errors);
         });
-    }
+    },
   }
 });
-
-// {"errors":{"activity":["can't be blank"],"location":["can't be blank"],"datetime":["cannot be in the past"]}}

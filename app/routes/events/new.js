@@ -1,7 +1,7 @@
 import AuthRoute from 'flame/routes/auth-route';
+import DS from 'ember-data';
 import Ember from 'ember';
 import EventsAdapter from 'flame/adapter/events';
-import DS from 'ember-data';
 
 export default AuthRoute.extend({
   adapter: EventsAdapter.create(),
@@ -25,7 +25,7 @@ export default AuthRoute.extend({
       return Ember.$.ajax(settings)
         .then(function(_event) {
           _this.transitionTo('events.show', _event);
-       })
+        })
         .fail(function(res) {
           var errorsHash = res.responseJSON.errors;
 
