@@ -59,7 +59,7 @@
         <h6 class="grey-text">Location</h6>
         {{#if errors.location}}
           {{input value=event.location class="invalid"}}
-          {{#each errors.activity as |error|}}
+          {{#each errors.location as |error|}}
             <label class="red-text">{{error.message}}</label>
           {{/each}}
         {{else}}
@@ -79,7 +79,6 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-  console.log('being fired on the template page');
   $('.datepicker').pickadate({
     format: 'yyyy-mm-dd',
     selectMonths: true, // Creates a dropdown to control month
