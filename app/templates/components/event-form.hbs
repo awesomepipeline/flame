@@ -1,6 +1,8 @@
 <div class="card grey lighten-5">
   <div class="card-content grey-text text-darken-2">
     <form {{action 'submit' on='submit'}}>
+      
+      {{!-- Activity Field --}}
       <div class="form-group">        
         <h6 class="grey-text">Activity</h6>
         {{#if errors.activity}}
@@ -12,18 +14,60 @@
           {{input value=event.activity}}
         {{/if}}        
       </div>
+
+      {{!-- Datetime fields --}}
+      {{!-- There are shenenigans with the script tag because of Javascript initialization.
+      I cannot create new elements (like how it's done in activity and location) because the
+      date and time pickers would fail to initialize, so this is how to prevent a new element
+      tag from being created --}}
       <div class="form-group">
         <h6 class="grey-text">Date</h6>
         {{input type="date" class="datepicker" value=event.date}}
+        {{#if errors.datetime}}
+          {{#each errors.datetime as |error|}}
+            <label class="red-text">{{error.message}}</label>
+          {{/each}}
+          <script type="text/javascript">
+            $('.datepicker').addClass('invalid');
+          </script>
+        {{else}}
+          <script type="text/javascript">
+            $('.datepicker').removeClass('invalid');
+          </script>
+        {{/if}}
+
       </div>
       <div class="form-group">
         <h6 class="grey-text">Time</h6>
         {{input value=event.time data-default=event.time id="time-picker"}}
+        {{#if errors.datetime}}
+          {{#each errors.datetime as |error|}}
+            <label class="red-text">{{error.message}}</label>
+          {{/each}}
+          <script type="text/javascript">
+            $('#time-picker').addClass('invalid');
+          </script>
+        {{else}}
+          <script type="text/javascript">
+            $('#time-picker').removeClass('invalid');
+          </script>
+        {{/if}}
       </div>
-      <div class="form-group">
+
+      {{!-- Location field --}}
+      <div class="form-group">        
         <h6 class="grey-text">Location</h6>
-        {{input value=event.location}}
+        {{#if errors.location}}
+          {{input value=event.location class="invalid"}}
+          {{#each errors.activity as |error|}}
+            <label class="red-text">{{error.message}}</label>
+          {{/each}}
+        {{else}}
+          {{input value=event.location}}
+        {{/if}}        
       </div>
+
+      {{!-- Description field --}}
       <div class="form-group">
         <h6 class="grey-text">Description</h6>
         {{textarea class='materialize-textarea' value=event.description}}
@@ -34,7 +78,9 @@
 </div>
 
 <script type="text/javascript">
-   $('.datepicker').pickadate({
+$(document).ready(function() {
+  console.log('being fired on the template page');
+  $('.datepicker').pickadate({
     format: 'yyyy-mm-dd',
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
@@ -43,4 +89,5 @@
   input.clockpicker({
       autoclose: true
   });
+});   
 </script>
