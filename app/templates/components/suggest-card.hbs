@@ -1,28 +1,32 @@
 <div class="card grey lighten-5" style="overflow: visible">
   <div class="card-content grey-text text-darken-2">
   <form {{action "submitSuggestion" on="submit"}}>
-  <div class="input-field col s12">
-    <p class="grey-text">Suggestion</p> 
-      <select id="dropdown">
-        <option value="" disabled selected>Choose your suggestion</option>
-        <option value="activity">Activity</option>
-        <option value="time">Time</option>
-        <option value="location">Location</option>
-      </select>
-    {{#each errors.datetime as |error|}}
-      <label class="red-text">{{error.message}}</label>
-    {{/each}}
-
-    {{#if errors.suggestion}}    
-      {{input id="suggestionText" class="invalid"}}
-      {{#each errors.suggestion as |error|}}
+    <div class="input-field">
+      <p class="grey-text">Suggestion</p> 
+        <select id="dropdown">
+          <option value="" disabled selected>Choose your suggestion</option>
+          <option value="activity">Activity</option>
+          <option value="time">Time</option>
+          <option value="location">Location</option>
+        </select>
+      {{#each errors.type as |error|}}
+        <label class="red-text">{{error.message}}</label>
+      {{/each}}
+    </div>
+    <br>
+    <div class="form-group">
+    <p class="grey-text">Value</p> 
+    {{#if errors.value}}    
+      <input type="text" id="suggestionText" class="invalid">
+      {{#each errors.value as |error|}}
         <label class="red-text">{{error.message}}</label>
       {{/each}}   
     {{else}}
-      {{input id="suggestionText"}}
+      <input type="text" id="suggestionText">
     {{/if}}
-  </div>    
-  <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
+    </div>
+
+    <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
   </form>    
   </div>
 </div>
