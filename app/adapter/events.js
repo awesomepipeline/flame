@@ -26,12 +26,14 @@ export default Ember.Object.extend({
       url = url + _event.id;
     }  
 
+    // If in the future you get confused over why this is a form-data request,
+    // check http://api.jquery.com/jquery.ajax/ and refer to sections
+    // "contentType" and "data" and also http://api.jquery.com/jQuery.param/
     var settings = {
       "async": true,
       "crossDomain": true,
       "url": url,
       "method": verb,
-      "dataType": 'json',
       "data": {
         "event": {
           "activity": _event.activity,
@@ -87,7 +89,6 @@ export default Ember.Object.extend({
   createNewSettings: function(_event) {
     return this.postSettings(_event, "POST");
   },
-
 
   createUpdateSettings: function(_event) {
     return this.postSettings(_event, "PUT");

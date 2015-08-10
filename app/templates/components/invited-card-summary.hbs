@@ -15,7 +15,7 @@
 
   <div class="card-action" style="float:right">
     <a class="red-text darken-4 response-button" {{action "decline"}}>Decline</a>
-    <a class="amber-text darken-4 response-button" href="#">Suggest</a>
+    {{#link-to 'invitations.suggest' card-data class="amber-text darken-4 response-button"}}Suggest{{/link-to}}
     <a class="light-green-text accent-4 response-button" {{action "accept"}}>Accept</a>
     {{#link-to 'invitations.show' card-data.id class="light-blue-text darken-4 response-button"}}Details{{/link-to}}
   </div>

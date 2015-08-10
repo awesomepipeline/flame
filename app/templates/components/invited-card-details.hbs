@@ -9,23 +9,27 @@
     <h6>{{card-data.description}}</h6>
     <div class="divider" style="margin:20px"></div>
     
-    <h5>Accepted</h5>
-    <ul>
-    {{#each invitation-details.accepted as |accepted|}}
-      <li>{{accepted.fullname}}</li>
-    {{else}}
-    Nobody has accepted this event yet :(
-    {{/each}}
-    </ul>
+    <div class="card-panel light-green lighten-1">
+      <b class="white-text">Accepted</b>
+      <ul class="white-text">
+      {{#each invitation-details.accepted as |accepted|}}
+        <li>{{accepted.fullname}}</li>
+      {{else}}
+      Nobody has accepted this event yet :(
+      {{/each}}
+      </ul>
+    </div>
 
-    <h5>Rejected</h5>
-    <ul>
-    {{#each invitation-details.rejected as |rejected|}}
-      <li>{{rejected.fullname}}</li>
-    {{else}}
-    Nobody has rejected this event yet :)
-    {{/each}}
-    </ul>
+    <div class="card-panel red lighten-2">
+      <b class="white-text">Rejected</b>
+      <ul class="white-text">
+      {{#each invitation-details.rejected as |rejected|}}
+        <li>{{rejected.fullname}}</li>
+      {{else}}
+      Nobody has rejected this event yet :)
+      {{/each}}
+      </ul>
+    </div>
   </div>
   
   <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">
@@ -34,7 +38,7 @@
 
   <div class="card-action" style="float:right">
     <a class="red-text darken-4 response-button" {{action "decline"}}>Decline</a>
-    <a class="amber-text darken-4 response-button" href="#">Suggest</a>
+    {{#link-to 'invitations.suggest' card-data class="amber-text darken-4 response-button"}}Suggest{{/link-to}}
     <a class="light-green-text accent-4 response-button" {{action "accept"}}>Accept</a>
   </div>
 </div>
