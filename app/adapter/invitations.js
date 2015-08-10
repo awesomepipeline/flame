@@ -44,6 +44,17 @@ export default Ember.Object.extend({
     });
   },
 
+  suggestModel: function(invitationId) {
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": this.get('baseUrl') + invitationId,
+      "method": "GET",
+    };  
+
+    return Ember.$.ajax(settings);
+  },
+
   createResponseSettings: function(invitationId, type) {
     var url = this.get('invitationUrl') + invitationId + "/" + type;
     var settings = {

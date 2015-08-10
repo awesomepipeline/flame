@@ -15,11 +15,12 @@ Router.map(function() {
 
   this.route('invitations', function() {
     this.route('show', { path: ':invitation_id' });
-    this.route('suggest', { path: ':invitation_id/suggest' }, function() {
-      this.route('activity');
-      this.route('datetime');
-      this.route('location');
-    });
+    this.route('suggest', { path: ':invitation_id/suggest' });
+    // this.route('suggest', { path: ':invitation_id/suggest' }, function() {
+    //   this.route('activity');
+    //   this.route('datetime');
+    //   this.route('location');
+    // });
   });
   
   this.route('login');
