@@ -1,0 +1,27 @@
+<div class="card grey lighten-5" style="overflow: visible">
+  <div class="card-content grey-text text-darken-2">
+  <form {{action "submitSuggestion" on="submit"}}>
+  <div class="input-field col s12">
+    <p class="grey-text">Suggestion</p>
+    <select id="dropdown">
+      <option value="" disabled selected>Choose your suggestion</option>
+      <option value="activity">Activity</option>
+      <option value="time">Time</option>
+      <option value="location">Location</option>
+    </select>    
+    {{input id="suggestionText"}}
+  </div>    
+  <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
+  </form>    
+  </div>
+</div>
+
+{{!-- I vaguely remember you have to pass in id to force the model to refresh...? --}}
+{{!-- It's under link-to documentation --}}
+{{#link-to 'invitations.show' card-data.id class="waves-effect waves-light btn grey"}}Back to Invitation Details{{/link-to}}
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
