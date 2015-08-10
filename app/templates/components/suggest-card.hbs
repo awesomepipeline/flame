@@ -9,10 +9,11 @@
           <option value="time">Time</option>
           <option value="location">Location</option>
         </select>
-      {{#each errors.type as |error|}}
+      
+    </div>
+    {{#each errors.type as |error|}}
         <label class="red-text">{{error.message}}</label>
       {{/each}}
-    </div>
     <br>
     <div class="form-group">
     <p class="grey-text">Value</p> 
