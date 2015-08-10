@@ -1,7 +1,20 @@
-<form {{action 'authenticate' on='submit'}}>
-  <label for="identification">Login</label>
-  {{input value=identification placeholder='Enter Login'}}
-  <label for="password">Password</label>
-  {{input value=password placeholder='Enter Password' type='password'}}
-  <button type="submit">Login</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col m10 offset-m1">     
+      <div class="card grey lighten-5">  
+        <div class="card-content grey-text text-darken-2">   
+          <span class="card-title grey-text text-darken-2" style="font-weight: 600"><h4>Login</h4></span>
+          <form {{action 'authenticate' on='submit'}}>
+            <label for="identification">Username</label>
+            {{input value=identification placeholder='Enter username'}}
+            <label for="password">Password</label>
+            {{input value=password placeholder='Make sure nobody is snooping on you!' type='password'}}
+            <button class="btn btn-primary waves-effect waves-light" type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+      {{#link-to 'index' class="waves-effect waves-light btn grey"}}Back{{/link-to}}
+    </div>
+  </div>
+</div>
+

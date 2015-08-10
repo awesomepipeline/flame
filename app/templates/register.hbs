@@ -1,9 +1,25 @@
-{{input type="text" placeholder="Username" value=username}}
-{{input type="text" placeholder="Display Name" value=displayname}}
-{{input type="password" placeholder="Password" value=password}}
-{{input type="password" placeholder="Password" value=passwordConfirm}}
-<button {{action "registerUser"}}>Submit</button>
+<div class="container">
+  <div class="row">
+    <div class="col m10 offset-m1">     
+      <div class="card grey lighten-5">  
+        <div class="card-content grey-text text-darken-2">   
+          <span class="card-title grey-text text-darken-2" style="font-weight: 600"><h4>Registration</h4></span>
+          <label for="identification">Username</label>
+          {{input type="text" placeholder="Username" value=username placeholder="Name you use to log in"}}
 
-<div>
-  {{errorMessage}}
+          <label for="identification">Display Name</label>
+          {{input type="text" placeholder="Display Name" value=displayname placeholder="Name other people see you as"}}
+
+          <label for="identification">Password</label>
+          {{input type="password" placeholder="Password" value=password placeholder="Enter password"}}
+
+          <label for="identification">Confirm password</label>
+          {{input type="password" placeholder="Password" value=passwordConfirm placeholder="Re-enter password"}}
+          <button {{action "registerUser"}} class="btn btn-primary waves-effect waves-light">Submit</button>
+        </div>
+      </div>
+      {{#link-to 'index' class="waves-effect waves-light btn grey"}}Back{{/link-to}}
+    </div>
+  </div>
 </div>
+
