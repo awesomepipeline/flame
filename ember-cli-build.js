@@ -24,22 +24,22 @@ module.exports = function(defaults) {
   app.import('bower_components/materialize/dist/js/materialize.js');
   
   // Materialize.css font and glyphicons imports
-  app.import('bower_components/materialize/font/roboto/Roboto-Regular.woff2', {
+  app.import('bower_components/materialize/font/roboto/Roboto-Regular.woff', {
     destDir: 'font/roboto'
   });
-  app.import('bower_components/materialize/font/roboto/Roboto-Light.woff2', {
+  app.import('bower_components/materialize/font/roboto/Roboto-Light.woff', {
     destDir: 'font/roboto'
   });
-  app.import('bower_components/materialize/font/roboto/Roboto-Bold.woff2', {
+  app.import('bower_components/materialize/font/roboto/Roboto-Bold.woff', {
     destDir: 'font/roboto'
   });
-  app.import('bower_components/materialize/font/roboto/Roboto-Thin.woff2', {
+  app.import('bower_components/materialize/font/roboto/Roboto-Thin.woff', {
     destDir: 'font/roboto'
   });
-  app.import('bower_components/materialize/font/roboto/Roboto-Medium.woff2', {
+  app.import('bower_components/materialize/font/roboto/Roboto-Medium.woff', {
     destDir: 'font/roboto'
   });
-  app.import('bower_components/materialize/font/material-design-icons/Material-Design-Icons.woff2', {
+  app.import('bower_components/materialize/font/material-design-icons/Material-Design-Icons.woff', {
     destDir: 'font/material-design-icons'
   });
 
