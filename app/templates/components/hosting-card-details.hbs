@@ -15,7 +15,7 @@
     <div class="card-panel light-green lighten-1">
       <b class="white-text">Accepted</b>
       <ul class="white-text">
-      {{#each invitation-details.accepted as |accepted|}}
+      {{#each invitation-data.accepted as |accepted|}}
         <li>{{accepted.fullname}}</li>
       {{else}}
       Nobody has accepted this event yet :(
@@ -26,7 +26,7 @@
     <div class="card-panel amber lighten-1">
       <b class="white-text">Not responded</b>
       <ul class="white-text">
-      {{#each invitation-details.not_responded as |not_responded|}}
+      {{#each invitation-data.not_responded as |not_responded|}}
         <li>{{not_responded.fullname}}</li>
       {{else}}
       It seems like everyone who's invited has responded to this event.
@@ -37,7 +37,7 @@
     <div class="card-panel red lighten-2">
       <b class="white-text">Rejected</b>
       <ul class="white-text">
-      {{#each invitation-details.rejected as |rejected|}}
+      {{#each invitation-data.rejected as |rejected|}}
         <li>{{rejected.fullname}}</li>
       {{else}}
       Nobody has rejected this event yet :)
