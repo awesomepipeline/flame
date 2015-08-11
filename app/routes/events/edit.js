@@ -26,7 +26,8 @@ export default AuthRoute.extend({
 
       return Ember.$.ajax(settings)
         .then(function(_event) {
-          _this.transitionTo('events.show', _event);
+          _this.transitionTo('events.show', _event.id);
+          Materialize.toast("Event successfully edited", 2000);
         })
         .fail(function(res) {
           var errorsHash = res.responseJSON.errors;
