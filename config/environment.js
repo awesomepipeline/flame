@@ -17,7 +17,8 @@ module.exports = function(environment) {
     api: {
       baseUrl: 'http://localhost:3000/api/v1/user/events/',
       invitationUrl: 'http://localhost:3000/api/v1/events/',
-      registerUrl: "http://localhost:3000/api/v1/users"
+      registerUrl: "http://localhost:3000/api/v1/users",
+      hostEventUrl: 'http://localhost:4200/events/'
     },
 
     APP: {
@@ -73,7 +74,8 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.api.baseUrl = 'http://envite-orbital.herokuapp.com/api/v1/user/events/';
     ENV.api.invitationUrl = 'http://envite-orbital.herokuapp.com/api/v1/events/';
-    ENV.api.registerUrl = "http://envite-orbital.herokuapp.com/api/v1/users";
+    ENV.api.registerUrl = "http://envite-orbital.herokuapp.com/api/v1/users/";
+    ENV.api.hostEventUrl = 'http://envite-orbital.herokuapp.com/',
     ENV['simple-auth-devise'].serverTokenEndpoint = "http://envite-orbital.herokuapp.com/api/v1/auth";
   }
 
