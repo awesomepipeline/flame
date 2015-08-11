@@ -4,18 +4,44 @@
       <div class="card grey lighten-5">  
         <div class="card-content grey-text text-darken-2">   
           <span class="card-title grey-text text-darken-2" style="font-weight: 600"><h4>Registration</h4></span>
-          <label for="identification">Username</label>
-          {{input type="text" placeholder="Username" value=username placeholder="Name you use to log in"}}
 
-          <label for="identification">Display Name</label>
+          <h6 class="grey-text">Username</h6>
+          {{#if errors.username}}
+            {{input type="text" placeholder="Username" value=username placeholder="Name you use to log in" class="invalid"}}
+            {{#each errors.username as |error|}}
+              <label class="red-text">{{error.message}}</label>
+            {{/each}}
+          {{else}}
+            {{input type="text" placeholder="Username" value=username placeholder="Name you use to log in"}}
+          {{/if}}
+
+          <br>
+
+          <h6 class="grey-text">Display Name</h6>
           {{input type="text" placeholder="Display Name" value=displayname placeholder="Name other people see you as"}}
 
-          <label for="identification">Password (must be more than, or equals to 8 characters)</label>
-          {{input type="password" placeholder="Password" value=password placeholder="Enter password"}}
+          <h6 class="grey-text">Password (must be more than, or equals to 8 characters)</h6>
+          {{#if errors.password}}          
+            {{input type="password" placeholder="Password" value=password placeholder="Enter password" class="invalid"}}
+            {{#each errors.password as |error|}}
+              <label class="red-text">{{error.message}}</label>
+            {{/each}}
+          {{else}}
+            {{input type="password" placeholder="Password" value=password placeholder="Enter password"}}
+          {{/if}}
 
-          <label for="identification">Confirm password</label>
-          {{input type="password" placeholder="Password" value=passwordConfirm placeholder="Re-enter password"}}
-          <button {{action "registerUser"}} class="btn btn-primary waves-effect waves-light">Submit</button>
+          <h6 class="grey-text">Confirm password</h6>
+          {{#if errors.password_confirmation}}
+            {{input type="password" placeholder="Password" value=passwordConfirm placeholder="Re-enter password" class="invalid"}}
+            {{#each errors.password_confirmation as |error|}}
+              <label class="red-text">{{error.message}}</label>
+            {{/each}}
+          {{else}}
+            {{input type="password" placeholder="Password" value=passwordConfirm placeholder="Re-enter password"}}
+          {{/if}}  
+          <p>
+            <button {{action "registerUser"}} class="btn btn-primary waves-effect waves-light">Submit</button>
+          </p>          
         </div>
       </div>
       {{#link-to 'index' class="waves-effect waves-light btn grey"}}Back{{/link-to}}

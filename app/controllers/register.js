@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import DS from 'ember-data';
 import RegisterAdapter from 'flame/adapter/register';
 
 export default Ember.Controller.extend({
-  errorMessage: '',
   adapter: RegisterAdapter.create(),
+  errors: DS.Errors.create(),
 
   actions: {
     registerUser: function() {
@@ -15,8 +16,13 @@ export default Ember.Controller.extend({
           _this.transitionToRoute('login');
         })
         .fail(function(res) {
-          console.log(res);
-          console.log(res.responseText);
+          var errors = DS.Errors.create();
+          var errorsHash = res.responseJSON.errors;
+          Object.keys(errorsHash).forEach(function(key) {
+            errors.add(key, errorsHash[key][0]);
+          });
+
+          _this.set('errors', errors);
         });
     }
   }
