@@ -24,7 +24,7 @@ export default AuthRoute.extend({
 
       return Ember.$.ajax(settings)
         .then(function(_event) {
-          _this.transitionTo('events.show', _event);
+          _this.transitionTo('events.show', _event.id);
         })
         .fail(function(res) {
           var errorsHash = res.responseJSON.errors;
