@@ -13,9 +13,11 @@ export default Ember.Route.extend({
       .done(function(response) {
         console.log(response);
         _this.transitionTo('invitations.show', params.event_id);
+        Materialize.toast("Successfully invited!", 2000);
       })
       .fail(function() {
         _this.transitionTo('invitations');
+        Materialize.toast("Invitation failed :(", 2000);
       });
   }
 });
