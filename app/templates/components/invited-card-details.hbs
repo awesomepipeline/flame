@@ -23,8 +23,8 @@
     <div class="card-panel amber lighten-1">
       <b class="white-text">Not responded</b>
       <ul class="white-text">
-      {{#each invitation-details.invited as |invited|}}
-        <li>{{invited.fullname}}</li>
+      {{#each invitation-details.not_responded as |not_responded|}}
+        <li>{{not_responded.fullname}}</li>
       {{else}}
       It seems like everyone has responded to this event.
       {{/each}}
