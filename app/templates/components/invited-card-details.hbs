@@ -20,6 +20,17 @@
       </ul>
     </div>
 
+    <div class="card-panel amber lighten-1">
+      <b class="white-text">Not responded</b>
+      <ul class="white-text">
+      {{#each invitation-details.invited as |invited|}}
+        <li>{{invited.fullname}}</li>
+      {{else}}
+      It seems like everyone has responded to this event.
+      {{/each}}
+      </ul>
+    </div>
+
     <div class="card-panel red lighten-2">
       <b class="white-text">Rejected</b>
       <ul class="white-text">
