@@ -4,6 +4,13 @@
       <div class="card grey lighten-5">  
         <div class="card-content grey-text text-darken-2">   
           <span class="card-title grey-text text-darken-2" style="font-weight: 600"><h4>Login</h4></span>
+          
+          {{#if error}}
+          <div class="card-panel red lighten-2">
+            <span class="white-text">{{error}}</span>
+          </div>
+          {{/if}}
+
           <form {{action 'authenticate' on='submit'}}>
             <label for="identification">Username</label>
             {{input value=identification placeholder='Enter username'}}
