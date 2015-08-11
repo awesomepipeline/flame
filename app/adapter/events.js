@@ -75,7 +75,8 @@ export default Ember.Object.extend({
 
     return Ember.RSVP.hash({
       eventDetails: Ember.$.ajax(settings),
-      invitationDetails: Ember.$.ajax(invitationSettings)
+      invitationDetails: Ember.$.ajax(invitationSettings),
+      hostEventUrl: config.api.hostEventUrl
     });
 
     // return Ember.$.ajax(settings);

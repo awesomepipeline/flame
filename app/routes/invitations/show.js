@@ -1,4 +1,5 @@
 import AuthRoute from 'flame/routes/auth-route';
+import config from 'flame/config/environment';
 import Ember from 'ember';
 import InvitationsAdapter from 'flame/adapter/invitations';
 

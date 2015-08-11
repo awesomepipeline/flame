@@ -9,7 +9,7 @@
     <h6>{{card-data.description}}</h6>
     <div class="divider" style="margin:20px"></div>
     <h6>Invitation link:</h6>
-    <textarea class="materialize-textarea">http://localhost:4200/events/{{card-data.id}}/invitation</textarea>
+    <textarea class="materialize-textarea">{{hostEventUrl}}{{card-data.id}}/invitation</textarea>
 
     {{!-- Responses should be refactored out into a component. I will leave it for now --}}
     <div class="card-panel light-green lighten-1">
