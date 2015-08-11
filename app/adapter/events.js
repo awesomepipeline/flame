@@ -110,7 +110,7 @@ export default Ember.Object.extend({
   },
 
   createInvitationSettings: function(params) {
-    var requestUrl = "http://localhost:3000/api/v1/events/" + params.event_id +  "/notification";
+    var requestUrl = this.get('invitationUrl') + params.event_id +  "/notification";
     var settings = {
       "async": true,
       "crossDomain": true,
