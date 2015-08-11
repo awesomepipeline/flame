@@ -3,6 +3,7 @@ import moment from 'moment';
 
 export default Ember.Object.extend({  
   baseUrl: 'http://localhost:3000/api/v1/user/events/',
+  invitationUrl: 'http://localhost:3000/api/v1/events/',
 
   // For generating settings that use a HTTP GET request
   getSettings: function(args) {
@@ -62,8 +63,21 @@ export default Ember.Object.extend({
   },
 
   showModel: function(params) {
-    var settings = this.getSettings(params.event_id);    
-    return Ember.$.ajax(settings);
+    var settings = this.getSettings(params.event_id);
+
+    var invitationSettings = {
+      "async": true,
+      "crossDomain": true,
+      "url": this.get('invitationUrl') + params.event_id + "/responses",
+      "method": "GET",
+    };
+
+    return Ember.RSVP.hash({
+      eventDetails: Ember.$.ajax(settings),
+      invitationDetails: Ember.$.ajax(invitationSettings)
+    });
+
+    // return Ember.$.ajax(settings);
   },
 
   editModel: function(params) {
