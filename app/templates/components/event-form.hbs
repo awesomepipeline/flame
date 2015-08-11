@@ -1,7 +1,6 @@
 <div class="card grey lighten-5">
   <div class="card-content grey-text text-darken-2">
-    <form {{action 'submit' on='submit'}}>
-      
+    <form {{action 'submit' on='submit'}}>    
       {{!-- Activity Field --}}
       <div class="form-group">        
         <h6 class="grey-text">Activity</h6>
@@ -72,6 +71,8 @@
         <h6 class="grey-text">Description (optional)</h6>
         {{textarea class='materialize-textarea' value=event.description}}
       </div>
+
+      {{!-- Submit button --}}
       <button class="btn btn-primary waves-effect waves-light" type="submit">{{buttonLabel}}</button>
     </form>
   </div>

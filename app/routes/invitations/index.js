@@ -2,7 +2,6 @@ import AuthRoute from 'flame/routes/auth-route';
 import Ember from 'ember';
 import InvitationsAdapter from 'flame/adapter/invitations';
 
-
 export default AuthRoute.extend({
   adapter: InvitationsAdapter.create(),
 

@@ -64,5 +64,34 @@ export default Ember.Object.extend({
         "method": "GET",
     };
     return settings;
+  },
+
+  createSuggestSettings: function(invitationId, type, value) {
+    var url = this.get('invitationUrl') + invitationId + "/" + type;
+
+    // Ugly fix to transform data
+    var keyArr = ["suggested_activity", "suggested_datetime", "suggested_location"];
+    var notificationKey;
+    if (type === "suggest_activity") {
+      notificationKey = keyArr[0];
+    } else if (type === "suggest_datetime") {
+      notificationKey = keyArr[1];
+    } else {
+      notificationKey = keyArr[2];
+    }
+
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "POST",
+        "data": {
+          "notification": {
+            [notificationKey]: value
+          }
+        }
+    };
+    return settings;
   }
 }); 
