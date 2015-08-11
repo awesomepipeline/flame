@@ -30,7 +30,6 @@ export default AuthRoute.extend({
           var errorsHash = res.responseJSON.errors;
 
           Object.keys(errorsHash).forEach(function(key) {
-            errors.remove(key, errorsHash[key][0]);
             errors.add(key, errorsHash[key][0]);
           });
 
