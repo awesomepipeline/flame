@@ -1,7 +1,8 @@
+import config from'flame/config/environment';
 import Ember from 'ember';
 
 export default Ember.Object.extend({
-  registerUrl: "http://localhost:3000/api/v1/users",
+  registerUrl: config.api.registerUrl,
 
   createRegisterSettings: function(controller) {
     var settings = {

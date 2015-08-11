@@ -13,6 +13,13 @@ module.exports = function(environment) {
       }
     },
 
+    // API endpoints customisation
+    api: {
+      baseUrl: 'http://localhost:3000/api/v1/user/events/',
+      invitationUrl: 'http://localhost:3000/api/v1/events/',
+      registerUrl: "http://localhost:3000/api/v1/users"
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -24,7 +31,7 @@ module.exports = function(environment) {
     authorizer: 'simple-auth-authorizer:devise',
     routeAfterAuthentication: 'events',
     routeIfAlreadyAuthenticated: 'events',
-    crossOriginWhitelist: ['http://localhost:3000']
+    crossOriginWhitelist: ['http://localhost:3000', 'http://envite-orbital.herokuapp.com/']
   };
 
   ENV['simple-auth-devise'] = {
@@ -64,7 +71,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.api.baseUrl = 'http://envite-orbital.herokuapp.com/api/v1/user/events/';
+    ENV.api.invitationUrl = 'http://envite-orbital.herokuapp.com/api/v1/events/';
+    ENV.api.registerUrl = "http://envite-orbital.herokuapp.com/api/v1/users";
+    ENV['simple-auth-devise'].serverTokenEndpoint = "http://envite-orbital.herokuapp.com/api/v1/auth";
   }
 
   return ENV;

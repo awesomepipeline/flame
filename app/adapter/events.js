@@ -1,9 +1,10 @@
+import config from 'flame/config/environment';
 import Ember from 'ember';
 import moment from 'moment';
 
 export default Ember.Object.extend({  
-  baseUrl: 'http://localhost:3000/api/v1/user/events/',
-  invitationUrl: 'http://localhost:3000/api/v1/events/',
+  baseUrl: config.api.baseUrl,
+  invitationUrl: config.api.invitationUrl,
 
   // For generating settings that use a HTTP GET request
   getSettings: function(args) {

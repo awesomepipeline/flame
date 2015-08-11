@@ -1,8 +1,9 @@
+import config from 'flame/config/environment';
 import Ember from 'ember';
 
 export default Ember.Object.extend({
-  baseUrl: 'http://localhost:3000/api/v1/user/events/',
-  invitationUrl: 'http://localhost:3000/api/v1/events/',
+  baseUrl: config.api.baseUrl,
+  invitationUrl: config.api.invitationUrl,
 
   getSettings: function(args) {
     var url;
