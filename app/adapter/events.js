@@ -65,9 +65,6 @@ export default Ember.Object.extend({
         }
       });
 
-      console.log("this is the data array");
-      console.log(data);
-
       data.sort(function(a, b) {
         return moment(a.datetime).diff(b.datetime);
       })
