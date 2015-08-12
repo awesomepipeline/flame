@@ -1,5 +1,5 @@
 {{#if session.isAuthenticated}}
-  {{partial "partials/header"}}
+  {{header-bar action="invalidateSession"}}
   {{outlet}}
 {{else}}
   {{outlet}}

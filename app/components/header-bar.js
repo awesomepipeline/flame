@@ -2,10 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   didRender() {
+    $('ul.tabs').tabs();
+    $(".button-collapse").sideNav();
+  },
 
-  $('ul.tabs').tabs();
-  console.log('this is fired');
-  
-  $(".button-collapse").sideNav();
+  actions: {
+    invalidateSession() {
+      this.sendAction('action');
+    }
   }
 });
