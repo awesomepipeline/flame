@@ -54,6 +54,7 @@ export default AuthRoute.extend({
       return Ember.$.ajax(settings)
         .then(function() {
           _this.transitionTo('invitations.show', invitationId);
+          Materialize.toast("Thanks for the suggestion!", 2000);
         })
 
     }
