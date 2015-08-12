@@ -59,7 +59,6 @@ export default Ember.Object.extend({
       Object.keys(events).forEach(function(key) {
         let _event = events[key];
         let eventDateTime = moment(_event.datetime);
-        console.log(eventDateTime.diff(today));
         if (eventDateTime.diff(today) > 0) {
           data.push(_event)
         }

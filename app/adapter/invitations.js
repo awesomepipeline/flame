@@ -30,14 +30,10 @@ export default Ember.Object.extend({
       Object.keys(events).forEach(function(key) {
         let _event = events[key];
         let eventDateTime = moment(_event.datetime);
-        console.log(eventDateTime.diff(today));
         if (eventDateTime.diff(today) > 0) {
           data.push(_event)
         }
       });
-
-      console.log("this is the data array");
-      console.log(data);
 
       data.sort(function(a, b) {
         return moment(a.datetime).diff(b.datetime);
@@ -100,7 +96,7 @@ export default Ember.Object.extend({
       notificationKey = keyArr[0];
     } else if (type === "suggest_datetime") {
       notificationKey = keyArr[1];
-    } else {
+    } else if (type === "suggest_location"){
       notificationKey = keyArr[2];
     }
 
@@ -112,6 +108,8 @@ export default Ember.Object.extend({
         "method": "POST",
         "data": {
           "notification": {
+            // This is cool ES6 syntax, the [notificationKey]! Allows you to use a 
+            // variable as an object key
             [notificationKey]: value
           }
         }
