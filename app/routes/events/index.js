@@ -6,5 +6,9 @@ export default AuthRoute.extend({
 
   model: function() {
     return this.get('adapter').indexModel();
-  },  
+  },
+
+  setupController(controller, model) {
+    controller.set("events", model);
+  }  
 });
