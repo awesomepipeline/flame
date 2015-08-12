@@ -1,0 +1,37 @@
+{{!-- https://www.google.com/design/icons/ --}}
+
+{{!-- Navbar --}}
+<nav class="z-depth-0 blue darken-1">
+  <div class="nav-wrapper">
+    <a href="#" data-activates="drawer" class="button-collapse hide-on-med-and-up"><i class="mdi-action-list"></i></a>
+    <ul class="side-nav" id="drawer">
+      {{!-- <li><a href="#">Settings</a></li> --}}
+      <li><a>{{session.content.secure.username}}</a></li>
+      <li><a {{action 'invalidateSession'}} style="cursor:pointer">Logout</a></li>
+    </ul>
+    <ul id="nav-mobile" class="hide-on-small-and-down">
+      <li><a><i class="mdi-action-account-circle" id="inline-icon"></i> {{session.content.secure.username}}</a></li>
+      <li><a {{action 'invalidateSession'}} style="cursor:pointer">Logout</a></li>
+    </ul>
+    <ul id="nav-mobile" class="right">
+      <li class="disabled">{{#link-to 'events.new' class='create-event-button'}}<i class="mdi-action-stars" id="inline-icon"></i> Create an event!{{/link-to}}</li>
+    </ul>
+  </div>
+</nav>
+
+{{!-- Tabs --}}
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs hide-on-small-only">
+      <li class="tab col s3">{{#link-to 'events'}}Events{{/link-to}}</li>
+      <li class="tab col s3">{{#link-to 'invitations'}}Invitations{{/link-to}}</li>
+    </ul>
+    <ul class="tabs hide-on-med-and-up">
+      <li class="tab col s3">{{#link-to 'events'}}<i class="mdi-social-group-add"></i>{{/link-to}}</li>
+      <li class="tab col s3">{{#link-to 'invitations'}}<i class="mdi-social-notifications"></i>{{/link-to}}</li>
+    </ul>
+  </div>
+</div>
+
+
+
