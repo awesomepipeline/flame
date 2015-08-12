@@ -11,40 +11,7 @@
     <h6>Invitation link:</h6>
     <textarea class="materialize-textarea">{{hostEventUrl}}{{card-data.id}}/invitation</textarea>
 
-    {{!-- Responses should be refactored out into a component. I will leave it for now :( --}}
-    <div class="card-panel light-green darken-1">
-      <b class="white-text">Accepted</b>
-      <ul class="white-text">
-      {{#each invitation-data.accepted as |accepted|}}
-        <li>{{accepted.fullname}}</li>
-      {{else}}
-      Nobody has accepted this event yet :(
-      {{/each}}
-      </ul>
-    </div>
-
-    <div class="card-panel amber darken-1">
-      <b class="white-text">Not responded</b>
-      <ul class="white-text">
-      {{#each invitation-data.not_responded as |not_responded|}}
-        <li>{{not_responded.fullname}}</li>
-      {{else}}
-      It seems like everyone has responded to this event.
-      {{/each}}
-      </ul>
-    </div>
-
-    <div class="card-panel red darken-1">
-      <b class="white-text">Rejected</b>
-      <ul class="white-text">
-      {{#each invitation-data.rejected as |rejected|}}
-        <li>{{rejected.fullname}}</li>
-      {{else}}
-      Nobody has rejected this event yet :)
-      {{/each}}
-      </ul>
-    </div>
-
+    {{response-details invitation-data=invitation-data}}    
   </div>
   
   <div class="card-action" style="text-align:right; border:none; padding-bottom:10px">
@@ -57,4 +24,3 @@
 </div>
 
 {{back-button type="events"}}
-

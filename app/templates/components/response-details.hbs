@@ -1,0 +1,65 @@
+{{!-- Accepted --}}
+<div class="card-panel light-green darken-1">
+  <b class="white-text">Accepted</b>
+  <ul class="white-text">
+    {{#each invitation-data.accepted as |accepted|}}
+      <li>{{accepted.fullname}}</li>
+    {{else}}
+    Nobody has accepted this event yet :(
+    {{/each}}
+  </ul>
+</div>
+
+{{!-- Not responded --}}
+<div class="card-panel amber darken-1">
+  <b class="white-text">Not responded</b>
+  <ul class="white-text">
+    {{#each invitation-data.not_responded as |not_responded|}}
+      <li>{{not_responded.fullname}}</li>
+    {{else}}
+    It seems like everyone has responded to this event.
+    {{/each}}
+  </ul>
+</div>
+
+{{!-- Rejected --}}
+<div class="card-panel red darken-1">
+  <b class="white-text">Rejected</b>
+  <ul class="white-text">
+    {{#each invitation-data.rejected as |rejected|}}
+      <li>{{rejected.fullname}}</li>
+    {{else}}
+    Nobody has rejected this event yet :)
+    {{/each}}
+  </ul>
+</div>
+
+{{!-- Suggestions --}}
+<div class="card-panel blue darken-1">
+  <b class="white-text">Suggestions</b>
+</div>
+
+<ul class="collapsible" data-collapsible="expandable">
+  <li>
+    <div class="collapsible-header collection-item">Activity<span class="badge">{{invitation-data.suggested_locations.length}}</span></div>
+    <div class="collapsible-body">
+      <p>
+        <ul>
+        {{#each invitation-data.suggested_locations as |location|}}
+          <li>{{location}}</li>
+        {{else}}
+        Nobody has made any suggestions for a location yet.
+        {{/each}}          
+        </ul>
+     </p>
+    </div>          
+  </li>
+  <li>
+    <div class="collapsible-header">Datetime</div>
+    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header">Location</div>
+    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+  </li>
+</ul>
