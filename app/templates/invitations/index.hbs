@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col m8 offset-m2">
-        {{#each model.events as |event|}}
+        {{#each model as |event|}}
           <div>{{invited-card-summary card-data=event decline="decline" accept="accept"}}</div>
 
         {{else}} 

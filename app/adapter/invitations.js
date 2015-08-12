@@ -21,7 +21,30 @@ export default Ember.Object.extend({
 
   indexModel: function() {
     var settings = this.getSettings("invited");
-    return Ember.$.ajax(settings);
+    
+    return Ember.$.ajax(settings).then(function(res) {
+      var data = [];
+      var events = res.events;
+      var today = moment();
+
+      Object.keys(events).forEach(function(key) {
+        let _event = events[key];
+        let eventDateTime = moment(_event.datetime);
+        console.log(eventDateTime.diff(today));
+        if (eventDateTime.diff(today) > 0) {
+          data.push(_event)
+        }
+      });
+
+      console.log("this is the data array");
+      console.log(data);
+
+      data.sort(function(a, b) {
+        return moment(a.datetime).diff(b.datetime);
+      })
+
+      return data;
+    });
   },
 
   showModel: function(invitationId) {

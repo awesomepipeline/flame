@@ -50,7 +50,6 @@ export default Ember.Object.extend({
 
   indexModel: function() {
     var settings = this.getSettings();
-    // return Ember.$.ajax(settings);
 
     return Ember.$.ajax(settings).then(function(res) {
       var data = [];
