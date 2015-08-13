@@ -6,16 +6,16 @@
         <select id="dropdown">
           <option value="" disabled selected>Choose your suggestion</option>
           <option value="suggest_activity">Activity</option>
-          <option value="suggest_datetime">Time</option>
+          <option value="suggest_datetime">Date & Time</option>
           <option value="suggest_location">Location</option>
-        </select>
-      
+        </select>      
     </div>
     {{#each errors.type as |error|}}
         <label class="red-text">{{error.message}}</label>
       {{/each}}
     <br>
-    <div class="form-group">
+
+    <div class="form-group" id="text-fields">
     <p class="grey-text">Value</p> 
     {{#if errors.value}}    
       <input type="text" id="suggestionText" class="invalid">
@@ -24,6 +24,24 @@
       {{/each}}   
     {{else}}
       <input type="text" id="suggestionText">
+
+      {{!-- Fuck I actually need both the date and time picker UGHHHH --}}
+      {{!-- Time picker --}}
+      <div class="form-group" id="timepicker">
+        {{input value=event.time data-default=event.time id="time-picker"}}
+        {{#if errors.datetime}}
+          {{#each errors.datetime as |error|}}
+            <label class="red-text">{{error.message}}</label>
+          {{/each}}
+          <script type="text/javascript">
+            $('#time-picker').addClass('invalid');
+          </script>
+        {{else}}
+          <script type="text/javascript">
+            $('#time-picker').removeClass('invalid');
+          </script>
+        {{/if}}
+      </div>
     {{/if}}
     </div>
 
@@ -38,6 +56,20 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+    $("#timepicker").hide();
     $('select').material_select();
+    $("#dropdown").change(function() {
+      if ($("#dropdown").val() === "suggest_datetime") {
+        $("#timepicker").show();
+        $("#suggestionText").hide();
+      } else {
+        $("#suggestionText").show();
+        $("#timepicker").hide();
+      }
+    });
+    var input = $('#time-picker');
+    input.clockpicker({
+        autoclose: true
+    });
   });
 </script>
