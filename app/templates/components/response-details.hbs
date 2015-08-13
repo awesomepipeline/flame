@@ -41,12 +41,12 @@
 
 <ul class="collapsible" data-collapsible="expandable">
   <li>
-    <div class="collapsible-header collection-item">Activity<span class="badge">{{invitation-data.suggested_locations.length}}</span></div>
+    <div class="collapsible-header collection-item">Activity<span class="badge">{{invitation-data.suggested_activities.length}}</span></div>
     <div class="collapsible-body">
       <p>
         <ul>
-        {{#each invitation-data.suggested_locations as |location|}}
-          <li>{{location}}</li>
+        {{#each invitation-data.suggested_activities as |suggestion|}}
+          <li>{{suggestion.fullname}} has suggested <b>{{suggestion.data}}.</b></li>
         {{else}}
         Nobody has made any suggestions for a location yet.
         {{/each}}          
@@ -55,11 +55,31 @@
     </div>          
   </li>
   <li>
-    <div class="collapsible-header">Datetime</div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    <div class="collapsible-header collection-item">Datetime<span class="badge">{{invitation-data.suggested_datetimes.length}}</span></div>
+    <div class="collapsible-body">
+      <p>
+        <ul>
+        {{#each invitation-data.suggested_datetimes as |suggestion|}}
+          <li>{{suggestion.fullname}} has suggested <b>{{suggestion.data}}.</b></li>
+        {{else}}
+        Nobody has made any suggestions for a location yet.
+        {{/each}}          
+        </ul>
+     </p>
+    </div> 
   </li>
   <li>
-    <div class="collapsible-header">Location</div>
-    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    <div class="collapsible-header collection-item">Location<span class="badge">{{invitation-data.suggested_locations.length}}</span></div>
+    <div class="collapsible-body">
+      <p>
+        <ul>
+        {{#each invitation-data.suggested_locations as |suggestion|}}
+          <li>{{suggestion.fullname}} has suggested <b>{{suggestion.data}}.</b></li>
+        {{else}}
+        Nobody has made any suggestions for a location yet.
+        {{/each}}          
+        </ul>
+     </p>
+    </div> 
   </li>
 </ul>
