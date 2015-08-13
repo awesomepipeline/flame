@@ -1,5 +1,25 @@
 <div class="card grey lighten-5" style="overflow: visible">
   <div class="card-content grey-text text-darken-2">
+  {{#if errors.type}}
+    <div class="card-panel red lighten-2">
+      <p class="white-text">
+        {{#each errors.type as |error|}}
+          {{error.message}}
+        {{/each}}
+      </p>
+    </div>
+  {{/if}}
+
+  {{#if errors.value}}
+    <div class="card-panel red lighten-2">
+      <p class="white-text">
+        {{#each errors.value as |error|}}
+          value {{error.message}}
+        {{/each}}
+      </p>
+    </div>
+  {{/if}}
+      
   <form {{action "submitSuggestion" on="submit"}}>
     <div class="input-field">
       <p class="grey-text">Suggestion</p> 
@@ -10,40 +30,29 @@
           <option value="suggest_location">Location</option>
         </select>      
     </div>
-    {{#each errors.type as |error|}}
-        <label class="red-text">{{error.message}}</label>
-      {{/each}}
+
+    
+    
     <br>
 
     <div class="form-group" id="text-fields">
     <p class="grey-text">Value</p> 
-    {{#if errors.value}}    
-      <input type="text" id="suggestionText" class="invalid">
-      {{#each errors.value as |error|}}
-        <label class="red-text">{{error.message}}</label>
-      {{/each}}   
-    {{else}}
       <input type="text" id="suggestionText">
-
-      {{!-- Fuck I actually need both the date and time picker UGHHHH --}}
-      {{!-- Time picker --}}
-      <div class="form-group" id="timepicker">
-        {{input value=event.time data-default=event.time id="time-picker"}}
-        {{#if errors.datetime}}
-          {{#each errors.datetime as |error|}}
-            <label class="red-text">{{error.message}}</label>
-          {{/each}}
-          <script type="text/javascript">
-            $('#time-picker').addClass('invalid');
-          </script>
-        {{else}}
-          <script type="text/javascript">
-            $('#time-picker').removeClass('invalid');
-          </script>
-        {{/if}}
-      </div>
-    {{/if}}
     </div>
+
+      {{!-- Datetime pickers --}}
+    <div id="datetime-group">
+      <div class="form-group">
+        <h6 class="grey-text">Date</h6>
+        {{input type="date" class="datepicker" id="date"}}
+      </div>
+      
+      <div class="form-group">
+        <h6 class="grey-text">Time</h6>
+        {{input value=event.time data-default=event.time id="time"}}        
+      </div>
+    </div>
+    
 
     <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
   </form>    
@@ -56,18 +65,23 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $("#timepicker").hide();
+    $("#datetime-group").hide();
     $('select').material_select();
     $("#dropdown").change(function() {
       if ($("#dropdown").val() === "suggest_datetime") {
-        $("#timepicker").show();
-        $("#suggestionText").hide();
+        $("#datetime-group").show();
+        $("#text-fields").hide();
       } else {
-        $("#suggestionText").show();
-        $("#timepicker").hide();
+        $("#text-fields").show();
+        $("#datetime-group").hide();
       }
     });
-    var input = $('#time-picker');
+    $('.datepicker').pickadate({
+      format: 'yyyy-mm-dd',
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+    var input = $('#time');
     input.clockpicker({
         autoclose: true
     });
