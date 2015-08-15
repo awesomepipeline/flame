@@ -20,6 +20,16 @@
     </div>
   {{/if}}
       
+  {{#if errors.time}}
+    <div class="card-panel red lighten-2">
+      <p class="white-text">
+        {{#each errors.time as |error|}}
+          {{error.message}}
+        {{/each}}
+      </p>
+    </div>
+  {{/if}}
+
   <form {{action "submitSuggestion" on="submit"}}>
     <div class="input-field">
       <p class="grey-text">Suggestion</p> 
@@ -29,9 +39,7 @@
           <option value="suggest_datetime">Date & Time</option>
           <option value="suggest_location">Location</option>
         </select>      
-    </div>
-
-    
+    </div>    
     
     <br>
 
@@ -77,7 +85,7 @@
       }
     });
     $('.datepicker').pickadate({
-      format: 'yyyy-mm-dd',
+      format: 'dd/mm/yyyy',
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15 // Creates a dropdown of 15 years to control year
     });

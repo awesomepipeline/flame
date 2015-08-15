@@ -100,7 +100,6 @@ export default Ember.Object.extend({
       notificationKey = keyArr[2];
     }
 
-
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -108,7 +107,7 @@ export default Ember.Object.extend({
         "method": "POST",
         "data": {
           "notification": {
-            // This is cool ES6 syntax, the [notificationKey]! Allows you to use a 
+            // This is cool ES6 syntax: the [notificationKey] allows you to use a 
             // variable as an object key
             [notificationKey]: value
           }

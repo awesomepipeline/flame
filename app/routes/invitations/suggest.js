@@ -7,7 +7,6 @@ export default AuthRoute.extend({
   adapter: InvitationsAdapter.create(),
 
   model: function(params) {
-    console.log(params.invitation_id);
     return this.get('adapter').suggestModel(params.invitation_id);
   },
 
@@ -18,37 +17,23 @@ export default AuthRoute.extend({
 
   actions: {
     submitSuggestion: function(type, value, invitationId) {
-      console.log(type);
-      console.log(value.length);
-      console.log(this.get('controller'));
-
       var errors = DS.Errors.create();
 
       // Client side validation for this 
       if (type === null) {
-        console.log('type fired');
         errors.add("type", "must choose a category");
+        this.controllerFor('invitations.suggest').set('errors', errors);
+        return;
       }
 
       if (value.length === 0) {
-        console.log('length fire');
         errors.add("value", "cannot be empty");
-      }
-
-      this.controllerFor('invitations.suggest').set('errors', errors);
+        this.controllerFor('invitations.suggest').set('errors', errors);
+        return;
+      }  
 
       // Sending request to server
       var settings = this.get('adapter').createSuggestSettings(invitationId, type, value);
-      // if (type === "activity") {
-      //   // Send the activity request
-      //   settings = this.get('adapter').suggestActivity();
-      // } else if(type === "time") {
-      //   // Send the time request
-      //   settings = this.get('adapter').suggestTime();
-      // } else {
-      //   // Send the location request
-      //   settings = this.get('adapter').suggestLocation();
-      // } 
 
       var _this = this;
       return Ember.$.ajax(settings)
@@ -56,6 +41,10 @@ export default AuthRoute.extend({
           _this.transitionTo('invitations.show', invitationId);
           Materialize.toast("Thanks for the suggestion!", 2000);
         })
+        .fail(function() {
+          errors.add('time', 'please fill up all the fields');
+          _this.controllerFor('invitations.suggest').set('errors', errors);
+        });
 
     }
   }
