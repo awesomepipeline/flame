@@ -75,7 +75,7 @@ module.exports = function(environment) {
     ENV.api.baseUrl = 'http://envite-orbital.herokuapp.com/api/v1/user/events/';
     ENV.api.invitationUrl = 'http://envite-orbital.herokuapp.com/api/v1/events/';
     ENV.api.registerUrl = "http://envite-orbital.herokuapp.com/api/v1/users/";
-    ENV.api.hostEventUrl = 'http://enviteapp.herokuapp.com/',
+    ENV.api.hostEventUrl = 'http://enviteapp.herokuapp.com/events/',
     ENV['simple-auth-devise'].serverTokenEndpoint = "http://envite-orbital.herokuapp.com/api/v1/auth";
   }
 
