@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col m8 offset-m2">
+    <div class="col m8 offset-m2 s12">
         {{#each model as |event|}}
           <div>{{invited-card-summary card-data=event decline="decline" accept="accept"}}</div>
 
         {{else}} 
-
+        
         <div class="card grey lighten-5">
           <div class="card-content grey-text text-darken-2">
             Aww, nobody has invited you to any event yet :(
