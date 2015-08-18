@@ -6,8 +6,12 @@
             <div>{{hosting-card-summary card-data=event deleteEvent="delete"}}</div>
 
           {{else}} 
-
-          You have not created any events. Maybe you would like to create one now?
+          
+          <div class="card grey lighten-5">
+            <div class="card-content grey-text text-darken-2">
+              You have not created any events. Would you like to {{#link-to 'events.new'}}create one now{{/link-to}}?
+            </div>
+          </div>          
 
           {{/each}}
        </div>
