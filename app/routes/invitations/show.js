@@ -9,6 +9,7 @@ export default AuthRoute.extend({
   activate: function() {
     // Force tabs to refresh
     $('ul.tabs').tabs();
+    this._super.apply(this, arguments);
   },
 
   model: function(params) {

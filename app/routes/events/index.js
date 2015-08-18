@@ -10,5 +10,5 @@ export default AuthRoute.extend({
 
   setupController(controller, model) {
     controller.set("events", model);
-  }  
+  }
 });
