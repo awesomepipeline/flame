@@ -48,7 +48,7 @@
         {{#each invitation-data.suggested_activities as |suggestion|}}
           <li>{{suggestion.fullname}} has suggested <b>{{suggestion.data}}.</b></li>
         {{else}}
-        Nobody has made any suggestions for a location yet.
+        Nobody has made any suggestions for an activity yet.
         {{/each}}          
         </ul>
      </p>
@@ -62,7 +62,7 @@
         {{#each invitation-data.suggested_datetimes as |suggestion|}}
           <li>{{suggestion.fullname}} has suggested <b>{{moment-format suggestion.data 'LLL'}}.</b></li>
         {{else}}
-        Nobody has made any suggestions for a location yet.
+        Nobody has made any suggestions for a datetime yet.
         {{/each}}          
         </ul>
      </p>
